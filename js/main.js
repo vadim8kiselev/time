@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     // If 'Change salary' was requested, open the dialog
     $('#change-salary').click(function () {
+        $.removeCookie('salary');
         to_entry();
     });
 });
