@@ -41,23 +41,6 @@ button:focus {
     border: 0;
 }
 
-.container-fluid {
-    height: 100%;
-    width: 100%;
-
-    text-align: center;
-}
-
-.row {
-    height: 20%;
-}
-
-.row div {
-    height: 100%;
-
-    background-color: #eaeaea;
-}
-
 .menu {
     width: 240px;
     height: 100%;
@@ -141,8 +124,7 @@ button:focus {
 
 
 
-
-.salary-input {
+#salary-input {
     box-shadow: none !important;
 
     margin-right: 20px;
@@ -159,6 +141,20 @@ button:focus {
     border: #ff4344 1px solid;
 }
 
+
+
+
+
+
+
+#calculator-money {
+    box-shadow: none !important;
+}
+
+#calculator-time {
+    box-shadow: none !important;
+    border : 0;
+}
 
 
 
