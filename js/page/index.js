@@ -20,11 +20,6 @@ const Entry = (function () {
     
     return {
         initialize: function () {
-            let salary = Cookie.get_salary();
-            if (typeof salary !== 'undefined') {
-                Navigation.to_menu();
-            }
-
             $(document).on('keydown', 'form', function (event) {
                 if (event.key === 'Enter') {
                     sign_in();
@@ -35,6 +30,13 @@ const Entry = (function () {
         login: sign_in
     }
 }());
+
+$(function() {
+    let salary = Cookie.get_salary();
+    if (typeof salary !== 'undefined') {
+        Navigation.to_menu();
+    }
+});
 
 $(document).ready(function () {
     Entry.initialize();

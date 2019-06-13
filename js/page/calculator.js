@@ -44,6 +44,13 @@ const Calculator = (function () {
     }
 }());
 
+$(function() {
+    let salary = Cookie.get_salary();
+    if (typeof salary === 'undefined') {
+        Navigation.to_entry();
+    }
+});
+
 $(document).ready(function () {
     Calculator.initialize();
 });
