@@ -6,25 +6,18 @@
 
         <title>Time</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
         <script src="js/lib/jquery.cookie.js" type="text/javascript"></script>
-        <script src="js/utils/cookie.js" type="text/javascript"></script>
-        <script src="js/validation/validate.js" type="text/javascript"></script>
+        <script src="js/service/service.js" type="text/javascript"></script>
         <script src="js/page/index.js" type="text/javascript"></script>
     </head>
 
@@ -32,24 +25,13 @@
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-6 mx-auto align-self-center">
-                    <form id="salary-form" class="text-center" autocomplete="off">
-                        <label>Profile</label>
-                        <input id="salary-input" class="form-control" name="salary" type="text" placeholder="Fill your salary anonymously" required>
+                    <form id="salary-form" class="form-inline text-center" autocomplete="off">
+                        <input id="salary-input" type="number" name="salary" min="1" placeholder="Salary" required>
 
-                        <select name="working_hours" class="form-control working-hours" form="salary-form">
-                            <option value="8" selected="selected">40-hour week</option>
-                            <option value="7">35-hour week</option>
-                            <option value="6">30-hour week</option>
-                            <option value="5">25-hour week</option>
-                            <option value="4">20-hour week</option>
-                        </select>
-
-                        <select name="currency" class="form-control currency" form="salary-form">
+                        <select id="currency-input" name="currency" form="salary-form">
                             <option value="₽" selected="selected">₽</option>
                             <option value="$">$</option>
                         </select>
-
-                        <button class="salary-button btn btn-primary" type="button" onclick="Entry.login()">Ok</button>
                     </form>
                 </div>
             </div>

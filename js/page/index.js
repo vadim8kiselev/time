@@ -1,43 +1,38 @@
 const Entry = (function () {
 
-    function initialize() {
+    function sign_in() {
         let salary = $("#salary-input").val();
-        let working_hours = $(".working-hours").val();
+        // let working_hours = $(".working-hours").val();
 
-        if (/^[1-9]\d*$/.test(salary)) {
-            to_main();
+        if (Validate.is_salary(salary)) {
+            Navigation.to_menu();
 
             Cookie.set_salary(salary);
-            Cookie.set_working_hours(working_hours);
+            // Cookie.set_working_hours(working_hours);
 
         } else {
+            // TODO: create an error message
             alert('Please, provide a valid salary');
         }
 
         return false;
     }
-
-    function to_main() {
-        window.location = 'menu.html';
-    }
     
     return {
         initialize: function () {
-            let salary = Cookie.salary();
+            let salary = Cookie.get_salary();
             if (typeof salary !== 'undefined') {
-                to_main();
+                Navigation.to_menu();
             }
 
             $(document).on('keydown', 'form', function (event) {
                 if (event.key === 'Enter') {
-                    initialize();
+                    sign_in();
                 }
             });
-
-            Validate.salary();
         },
 
-        login: initialize
+        login: sign_in
     }
 }());
 

@@ -6,25 +6,18 @@
 
         <title>Time</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
         <script src="js/lib/jquery.cookie.js" type="text/javascript"></script>
-        <script src="js/utils/constants.js" type="text/javascript"></script>
-        <script src="js/utils/utils.js" type="text/javascript"></script>
+        <script src="js/service/service.js" type="text/javascript"></script>
         <script src="js/page/menu.js" type="text/javascript"></script>
     </head>
 
@@ -33,7 +26,7 @@
             <h3>Time</h3>
             <a href="#" id="edit-profile">Edit profile</a>
             <a href="#" id="information">Information</a>
-            <a href="#" id="copyright">Copyright</a>
+            <a href="#" id="copyright">Authors</a>
         </nav>
         <button class="toggler">
             <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -46,37 +39,28 @@
             </svg>
         </button>
 
-
         <div class="container h-100">
-            <div class="row h-50">
-                <div class="col-3 mx-auto align-self-center">
-                    <form id="calculator-enter" class="justify-content-center">
-                        <button class="btn btn-primary" type="button" onclick="window.location = 'calculator.html'; return false;">Calculator</button>
-                    </form>
+            <div class="clock">
+                <div class="hours-container">
+                    <div class="hours"></div>
                 </div>
-                <div class="col-3 mx-auto align-self-center">
-                    <form id="charts-enter" class="justify-content-center">
-                        <button class="btn btn-primary" type="button" onclick="return false;">Charts</button>
-                    </form>
+                <div class="minutes-container">
+                    <div class="minutes"></div>
                 </div>
-            </div>
-            <div class="row h-50">
-                <div class="col-3 mx-auto align-self-center">
-                    <form id="something-enter" class="justify-content-center">
-                        <button class="btn btn-primary" type="button" onclick="return false;">Something</button>
-                    </form>
+                <div class="seconds-container">
+                    <div class="seconds"></div>
                 </div>
-                <div class="col-3 mx-auto align-self-center">
-                    <form id="else-enter" class="justify-content-center">
-                        <button class="btn btn-primary" type="button" onclick="return false;">Else</button>
-                    </form>
-                </div>
-            </div>
-        </div>
 
-        <button type="button" class="btn" style="position: absolute; right: 0; bottom: 0"
-                onclick="$.removeCookie('salary'); window.location = 'index.html';">
-            <p>Invalidate cookie</p>
-        </button>
+                <div class="calculator-chart" onclick="Navigation.to_calculator();"></div>
+                <div class="planner-chart"></div>
+                <div class="something-chart"></div>
+                <div class="else-chart"></div>
+            </div>
+
+            <p id="calculator-title" class="curved-title">Calculator</p>
+            <p id="planner-title" class="curved-title">Planner</p>
+            <p id="title1" class="curved-title">Something</p>
+            <p id="title2" class="curved-title">Else</p>
+        </div>
     </body>
 </html>

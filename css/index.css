@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic');
+
+* {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+
+    overflow: hidden;
+    font-family: Roboto, sans-serif
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+input:focus,
+button:focus {
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    background-color: transparent;
+    border-top-width: initial;
+    border-right-width: initial;
+    border-left-width: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    box-sizing: content-box;
+    border-style: none none solid;
+    border-image: initial;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    border-radius: 0;
+    outline: 0;
+    transition: all 0.3s ease 0s;
+    padding: .375rem 1.75rem .375rem .75rem;
+}
+
+/* Salary */
+#salary-input {
+    box-shadow: none !important;
+    width: 60%;
+    margin-right: 5px;
+}
+#salary-input:focus {
+    border-bottom: 1px solid #4285F4;
+}
+
+
+/* Currency */
+#currency-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    outline: 0;
+    width: 5%;
+    font-size: 1rem;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    transition: all .3s;
+
+
+    display: inline-block;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#currency-input:focus {
+    border-bottom: 1px solid #4285F4;
+}
