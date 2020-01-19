@@ -165,17 +165,17 @@ const Timer = (function () {
 const Navigation = (function () {
 
     function navigate_to_entry() {
-        navigate('index.html');
+        navigate('/');
         return false;
     }
 
     function navigate_to_menu() {
-        navigate('menu.html');
+        navigate('menu');
         return false;
     }
 
     function navigate_to_calculator() {
-        navigate('calculator.html');
+        navigate('calculator');
         return false;
     }
 
