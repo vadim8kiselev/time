@@ -1,5 +1,7 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +27,15 @@
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-6 mx-auto align-self-center">
-                    <form id="salary-form" class="form-inline text-center" autocomplete="off">
-                        <input id="salary-input" type="number" name="salary" min="1" placeholder="Salary" required>
+                    <form:form id="salary-form" method="POST" class="form-inline text-center"
+                               action="/" modelAttribute="profile" autocomplete="off">
+                        <form:input id="salary-input" type="number" path="salary" min="1" placeholder="Salary" required="required"/>
 
-                        <select id="currency-input" name="currency" form="salary-form">
+                        <form:select id="currency-input" path="currency" form="salary-form">
                             <option value="₽" selected="selected">₽</option>
                             <option value="$">$</option>
-                        </select>
-                    </form>
+                        </form:select>
+                    </form:form>
                 </div>
             </div>
         </div>

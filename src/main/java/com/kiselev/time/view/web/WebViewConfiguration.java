@@ -2,9 +2,12 @@ package com.kiselev.time.view.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.kiselev.time.model.session.TimeSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.ViewResolver;
@@ -24,10 +27,16 @@ public class WebViewConfiguration extends WebMvcConfigurerAdapter {
     private ObjectMapper objectMapper;
 
     @Bean
+    @Scope(scopeName = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+    public TimeSession timeSession() {
+        return new TimeSession();
+    }
+
+    @Bean
     public ViewResolver getViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/html/");
-        resolver.setSuffix(".html");
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
         return resolver;
     }
 

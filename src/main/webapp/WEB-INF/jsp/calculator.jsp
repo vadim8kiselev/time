@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 
         <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/static/css/menu.css" rel="stylesheet">
+        <link href="/static/css/calculator.css" rel="stylesheet">
 
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -18,7 +18,7 @@
 
         <script src="/static/js/lib/jquery.cookie.js" type="text/javascript"></script>
         <script src="/static/js/service/service.js" type="text/javascript"></script>
-        <script src="/static/js/page/menu.js" type="text/javascript"></script>
+        <script src="/static/js/page/calculator.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -40,27 +40,26 @@
         </button>
 
         <div class="container h-100">
-            <div class="clock">
-                <div class="hours-container">
-                    <div class="hours"></div>
+            <div class="row h-100">
+                <div class="col-6 mx-auto align-self-center">
+                    <form id="calculator" class="text-center" autocomplete="off">
+                        <input id="calculator-money" type="number" name="money" placeholder="Money">
+                        <input id="calculator-time" name="time" type="text" placeholder="Time" readonly>
+                    </form>
                 </div>
-                <div class="minutes-container">
-                    <div class="minutes"></div>
-                </div>
-                <div class="seconds-container">
-                    <div class="seconds"></div>
-                </div>
-
-                <div class="calculator-chart" onclick="Navigation.to_calculator();"></div>
-                <div class="planner-chart"></div>
-                <div class="something-chart"></div>
-                <div class="else-chart"></div>
             </div>
-
-            <p id="calculator-title" class="curved-title">Calculator</p>
-            <p id="planner-title" class="curved-title">Planner</p>
-            <p id="title1" class="curved-title">Something</p>
-            <p id="title2" class="curved-title">Else</p>
         </div>
+
+        <!--<div id="circularMenu" class="circular-menu">
+            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+                <i class="fa fa-plus"></i>
+            </a>
+            <menu class="items-wrapper">
+                <a href="#" class="menu-item fa fa-facebook"></a>
+                <a href="#" class="menu-item fa fa-twitter"></a>
+                <a href="#" class="menu-item fa fa-google-plus"></a>
+                <a href="#" class="menu-item fa fa-linkedin"></a>
+            </menu>
+        </div>-->
     </body>
 </html>
