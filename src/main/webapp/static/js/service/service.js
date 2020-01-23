@@ -190,4 +190,53 @@ const Navigation = (function () {
     }
 }());
 
+const Caller = (function () {
+    function callFull(method, url, async, data, dataType, processData, contentType, success, error) {
+        console.log(url);
+        $.ajax({
+            type: method,
+            url: url,
+            async: async,
+            data: data,
+            dataType: dataType,
+            processData: processData,
+            contentType: contentType,
+            success: function (body) {
+                success(body);
+            },
+            error: function (exception) {
+                error(exception);
+            }
+        });
+    }
+
+    function call(method, url, data, dataType, success, error) {
+        callFull(method, url, true, JSON.stringify(data), dataType, false, 'application/json', success, error);
+    }
+
+    function get(url, success, error) {
+        call('GET', url, null, 'json', success, error);
+    }
+
+    function post(url, data, success, error) {
+        call('POST', url, data, 'json', success, error);
+    }
+
+    function url(uri, parameters) {
+        let url = 'http://localhost:8080/' + uri;
+        if (parameters) {
+            let urlParams = jQuery.param(parameters);
+            url += (urlParams ? '?' + urlParams : '');
+        }
+        return url;
+    }
+
+    return {
+        callFull: callFull,
+        call: call,
+        get: get,
+        post: post,
+        url: url
+    }
+}());
 

@@ -31,20 +31,23 @@ const Calculator = (function () {
                     return false;
                 }
 
-                let salary = (Cookie.get_salary() - 0) * Constant.tax();
-                // let working_hours = Cookie.get_working_hours() - 0;
+                Caller.get(
+                    Caller.url('/calculator/calculate', {"price": money}),
+                    function (data) {
+                        console.log(data);
+                        calculator_time.val(Timer.convert(data['calendar_time']));
+                    },
+                    function (error) {
+                        console.error(error);
+                    }
+                );
 
-                let money_per_second = salary * Constant.months() / Constant.days() / Constant.hours() / Constant.minutes() / Constant.seconds();
-
-                let seconds_to_buy = money / money_per_second;
-
-                calculator_time.val(Timer.convert(seconds_to_buy));
             });
         },
     }
 }());
 
-$(function() {
+$(function () {
     let salary = Cookie.get_salary();
     if (typeof salary === 'undefined') {
         Navigation.to_entry();

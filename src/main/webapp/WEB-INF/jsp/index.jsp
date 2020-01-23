@@ -35,6 +35,10 @@
                             <option value="₽" selected="selected">₽</option>
                             <option value="$">$</option>
                         </form:select>
+
+                        <form:input id="tax-input" type="number" path="tax" placeholder="Tax"/>
+
+                        <form:button type="submit" style="visibility: hidden;"/>
                     </form:form>
                 </div>
             </div>

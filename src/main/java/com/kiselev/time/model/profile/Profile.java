@@ -5,9 +5,13 @@ import lombok.Data;
 @Data
 public class Profile {
 
-    private Integer salary;
+    private Long salary;
 
     private String currency;
 
-    private Integer tax;
+    private Integer tax = 13;
+
+    private Integer hours = 40;
+
+    private Integer age;
 }

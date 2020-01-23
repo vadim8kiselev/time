@@ -15,7 +15,7 @@ public class IndexController {
     @Autowired
     private TimeSession timeSession;
 
-    @GetMapping(value = "/")
+    @GetMapping("/")
     public String index(Model model) {
         Profile profile = timeSession.hasNoProfile()
                 ? new Profile()
@@ -24,7 +24,7 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping(value = "/")
+    @PostMapping("/")
     public String index(Model model, @ModelAttribute Profile profile) {
         timeSession.setProfile(profile);
         model.addAttribute("profile", profile);
