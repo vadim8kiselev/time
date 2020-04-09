@@ -13,5 +13,5 @@ public class CalculatorResponse {
 
     private Long cleanTime;
 
-    private Long percents;
+    private Double percents;
 }

@@ -1,9 +1,9 @@
 package com.kiselev.time.view.web.controller;
 
+import com.kiselev.time.model.constants.NavigationConstants.CalculatorConstants;
 import com.kiselev.time.model.response.CalculatorResponse;
 import com.kiselev.time.model.session.TimeSession;
 import com.kiselev.time.service.calculator.CalculatorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,15 +12,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class CalculatorController {
 
-    @Autowired
-    private CalculatorService calculatorService;
+    private final TimeSession timeSession;
 
-    @Autowired
-    private TimeSession timeSession;
+    private final CalculatorService calculatorService;
+
+    public CalculatorController(TimeSession timeSession,
+                                CalculatorService calculatorService) {
+        this.timeSession = timeSession;
+        this.calculatorService = calculatorService;
+    }
 
     @GetMapping("/calculator")
     public String calculator() {
-        return "calculator";
+        if (timeSession.hasNoProfile()) {
+            return CalculatorConstants.TO_INDEX;
+        }
+        return CalculatorConstants.CALCULATOR;
     }
 
     @ResponseBody

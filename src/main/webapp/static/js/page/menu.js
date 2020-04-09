@@ -81,21 +81,13 @@ const Menu = (function () {
 
     return {
         initialize: function () {
-
             let toggler = $('.toggler'),
-                menu = $('.menu'),
-                edit_profile = $('#edit-profile');
+                menu = $('.menu');
 
             // Open menu
             toggler.click(function () {
                 menu.toggleClass(menu_open_class);
                 toggler.toggleClass(toggler_active_class);
-            });
-
-            // If 'Change salary' was requested, open the dialog
-            edit_profile.click(function () {
-                Cookie.clean();
-                Navigation.to_entry();
             });
 
             initClocks();
@@ -104,13 +96,6 @@ const Menu = (function () {
         },
     }
 }());
-
-$(function() {
-    let salary = Cookie.get_salary();
-    if (typeof salary === 'undefined') {
-        Navigation.to_entry();
-    }
-});
 
 $(document).ready(function () {
     Menu.initialize();

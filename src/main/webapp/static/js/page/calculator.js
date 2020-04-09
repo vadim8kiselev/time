@@ -7,9 +7,11 @@ const Calculator = (function () {
         initialize: function () {
             let toggler = $('.toggler'),
                 menu = $('.menu'),
-                edit_profile = $('#edit-profile'),
                 calculator_money = $('#calculator-money'),
-                calculator_time = $('#calculator-time');
+                calculator_date = $('#calculator-date'),
+                calculator_time = $('#calculator-time'),
+                calculator_clean_time = $('#calculator-clean-time'),
+                calculator_percents = $('#calculator-percents');
 
             // Open menu
             toggler.click(function () {
@@ -17,17 +19,14 @@ const Calculator = (function () {
                 toggler.toggleClass(toggler_active_class);
             });
 
-            // If 'Change salary' was requested, open the dialog
-            edit_profile.click(function () {
-                Cookie.clean();
-                Navigation.to_entry();
-            });
-
             calculator_money.change(function () {
                 let money = calculator_money.val() - 0;
 
                 if (money <= 0) {
+                    calculator_date.val('');
                     calculator_time.val('');
+                    calculator_clean_time.val('');
+                    calculator_percents.val('');
                     return false;
                 }
 
@@ -35,7 +34,10 @@ const Calculator = (function () {
                     Caller.url('/calculator/calculate', {"price": money}),
                     function (data) {
                         console.log(data);
-                        calculator_time.val(Timer.convert(data['calendar_time']));
+                        calculator_date.val(Timer.to_date(data['calendar_date']));
+                        calculator_time.val(Timer.to_interval(data['calendar_time']));
+                        calculator_clean_time.val(Timer.to_interval(data['clean_time']));
+                        calculator_percents.val(data['percents'] + '%');
                     },
                     function (error) {
                         console.error(error);
@@ -46,13 +48,6 @@ const Calculator = (function () {
         },
     }
 }());
-
-$(function () {
-    let salary = Cookie.get_salary();
-    if (typeof salary === 'undefined') {
-        Navigation.to_entry();
-    }
-});
 
 $(document).ready(function () {
     Calculator.initialize();

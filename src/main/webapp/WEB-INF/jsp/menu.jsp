@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,6 +11,7 @@
         <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="/static/css/menu.css" rel="stylesheet">
+        <link href="/static/css/component/menu.css" rel="stylesheet">
 
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,9 +27,15 @@
     <body>
         <nav class="menu">
             <h3>Time</h3>
-            <a href="#" id="edit-profile">Edit profile</a>
-            <a href="#" id="information">Information</a>
-            <a href="#" id="copyright">Authors</a>
+            <form id="edit-profile" action="/edit" method="GET">
+                <button type="submit">Edit profile</button>
+            </form>
+            <form id="information" action="/information" method="GET">
+                <button type="submit">Information</button>
+            </form>
+            <form id="copyright" action="/copyright" method="GET">
+                <button type="submit">Authors</button>
+            </form>
         </nav>
         <button class="toggler">
             <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -51,10 +60,18 @@
                     <div class="seconds"></div>
                 </div>
 
-                <div class="calculator-chart" onclick="Navigation.to_calculator();"></div>
-                <div class="planner-chart"></div>
-                <div class="something-chart"></div>
-                <div class="else-chart"></div>
+                <form id="calculator" action="/calculator" method="GET">
+                    <button type="submit" class="calculator-chart"></button>
+                </form>
+                <form id="planner" action="/planner" method="GET">
+                    <button type="submit" class="planner-chart"></button>
+                </form>
+                <form id="function1" action="/something" method="GET">
+                    <button type="submit" class="something-chart"></button>
+                </form>
+                <form id="function2" action="/else" method="GET">
+                    <button type="submit" class="else-chart"></button>
+                </form>
             </div>
 
             <p id="calculator-title" class="curved-title">Calculator</p>

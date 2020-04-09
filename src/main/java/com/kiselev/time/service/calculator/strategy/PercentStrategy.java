@@ -1,22 +1,25 @@
 package com.kiselev.time.service.calculator.strategy;
 
-import com.kiselev.time.model.TimeConstants;
 import com.kiselev.time.model.profile.Profile;
+import com.kiselev.time.service.calculator.utils.CalculationUtils;
 
-public class PercentStrategy extends CalendarTimeStrategy {
+public class PercentStrategy {
 
-    public Long calculate(Profile profile, Long price) {
+    private final CalendarTimeStrategy calendarTimeStrategy;
+
+    public PercentStrategy(CalendarTimeStrategy calendarTimeStrategy) {
+        this.calendarTimeStrategy = calendarTimeStrategy;
+    }
+
+    public Double calculate(Profile profile, Long price) {
         Integer age = profile.getAge();
-
         if (age != null) {
-            long timeToBuy = super.calculate(profile, price);
+            long timeToBuy = calendarTimeStrategy.calculate(profile, price);
 
-            long secondsToLive = age *
-                    TimeConstants.DAYS * TimeConstants.HOURS * TimeConstants.MINUTES * TimeConstants.SECONDS;
+            long pastSeconds = CalculationUtils.yearsToSeconds(age);
 
-            return Math.round((timeToBuy + 0.0) / secondsToLive * 100);
+            return CalculationUtils.percents(timeToBuy, pastSeconds);
         }
-
         return null;
     }
 }

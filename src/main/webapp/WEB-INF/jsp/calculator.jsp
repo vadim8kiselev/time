@@ -9,6 +9,7 @@
         <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="/static/css/calculator.css" rel="stylesheet">
+        <link href="/static/css/component/menu.css" rel="stylesheet">
 
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,9 +25,15 @@
     <body>
         <nav class="menu">
             <h3>Time</h3>
-            <a href="#" id="edit-profile">Edit profile</a>
-            <a href="#" id="information">Information</a>
-            <a href="#" id="copyright">Authors</a>
+            <form id="edit-profile" action="/edit" method="GET">
+                <button type="submit">Edit profile</button>
+            </form>
+            <form id="information" action="/information" method="GET">
+                <button type="submit">Information</button>
+            </form>
+            <form id="copyright" action="/copyright" method="GET">
+                <button type="submit">Authors</button>
+            </form>
         </nav>
         <button class="toggler">
             <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -44,7 +51,10 @@
                 <div class="col-6 mx-auto align-self-center">
                     <form id="calculator" class="text-center" autocomplete="off">
                         <input id="calculator-money" type="number" name="money" placeholder="Money">
+                        <input id="calculator-date" name="date" type="text" placeholder="Date" readonly>
                         <input id="calculator-time" name="time" type="text" placeholder="Time" readonly>
+                        <input id="calculator-clean-time" name="clean-time" type="text" placeholder="Clean time" readonly>
+                        <input id="calculator-percents" name="percents" type="text" placeholder="Percents" readonly>
                     </form>
                 </div>
             </div>

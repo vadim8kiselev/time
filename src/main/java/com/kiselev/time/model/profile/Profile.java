@@ -13,5 +13,5 @@ public class Profile {
 
     private Integer hours = 40;
 
-    private Integer age;
+    private Integer age = 23;
 }

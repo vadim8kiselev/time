@@ -1,11 +1,5 @@
 const Constant = (function () {
-
-    /*const working_days_table = {
-        2019: 247
-    };*/
-
     return {
-
         minutes: function () {
             return 60;
         },
@@ -14,20 +8,12 @@ const Constant = (function () {
             return 60;
         },
 
-        months: function () {
-            return 12;
-        },
-
         days: function () {
             return 365;
         },
 
         hours: function () {
             return 24;
-        },
-
-        tax: function () {
-            return 0.87;
         }
     }
 }());
@@ -92,7 +78,7 @@ const Timer = (function () {
           hour = Constant.minutes() * Constant.seconds(),
           minute = Constant.seconds();
 
-    function convert_seconds(raw_seconds) {
+    function seconds_to_interval(raw_seconds) {
         raw_seconds = Math.round(raw_seconds);
 
         let time = '';
@@ -156,37 +142,14 @@ const Timer = (function () {
         return number !== 1 ? 's ' : ' ';
     }
 
-    return {
-        convert: convert_seconds
-    }
-
-}());
-
-const Navigation = (function () {
-
-    function navigate_to_entry() {
-        navigate('/');
-        return false;
-    }
-
-    function navigate_to_menu() {
-        navigate('menu');
-        return false;
-    }
-
-    function navigate_to_calculator() {
-        navigate('calculator');
-        return false;
-    }
-
-    function navigate(page) {
-        window.location = page;
+    function seconds_to_date(seconds) {
+        let date = new Date(seconds);
+        return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
     }
 
     return {
-        to_entry: navigate_to_entry,
-        to_menu: navigate_to_menu,
-        to_calculator: navigate_to_calculator
+        to_interval: seconds_to_interval,
+        to_date: seconds_to_date
     }
 }());
 

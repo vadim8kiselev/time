@@ -12,15 +12,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="/static/css/index.css" rel="stylesheet">
 
-
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-        <script src="/static/js/lib/jquery.cookie.js" type="text/javascript"></script>
-        <script src="/static/js/service/service.js" type="text/javascript"></script>
-        <script src="/static/js/page/index.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -36,7 +30,9 @@
                             <option value="$">$</option>
                         </form:select>
 
+                        <form:input id="hours-input" type="number" path="hours" placeholder="Working hours"/>
                         <form:input id="tax-input" type="number" path="tax" placeholder="Tax"/>
+                        <form:input id="age-input" type="number" path="age" placeholder="Age"/>
 
                         <form:button type="submit" style="visibility: hidden;"/>
                     </form:form>

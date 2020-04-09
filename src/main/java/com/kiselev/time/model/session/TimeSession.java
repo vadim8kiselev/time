@@ -8,6 +8,10 @@ public class TimeSession {
 
     private Profile profile;
 
+    public boolean hasProfile() {
+        return profile != null;
+    }
+
     public boolean hasNoProfile() {
         return profile == null;
     }
