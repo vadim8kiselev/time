@@ -159,6 +159,9 @@ const Caller = (function () {
         $.ajax({
             type: method,
             url: url,
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
             async: async,
             data: data,
             dataType: dataType,
