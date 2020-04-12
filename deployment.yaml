@@ -15,8 +15,24 @@ spec:
         app: time
     spec:
       containers:
-      - image: kiselev/time
+      - image: kiselev/time:1.0.0
         name: time
         ports:
         - containerPort: 8080
-
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: time
+  name: time-service
+spec:
+  externalTrafficPolicy: Cluster
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: time

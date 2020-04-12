@@ -34,9 +34,9 @@ const Calculator = (function () {
                     Caller.url('/calculator/calculate', {"price": money}),
                     function (data) {
                         console.log(data);
-                        calculator_date.val(Timer.to_date(data['calendar_date']));
-                        calculator_time.val(Timer.to_interval(data['calendar_time']));
-                        calculator_clean_time.val(Timer.to_interval(data['clean_time']));
+                        calculator_date.val(Timer.to_date(data['calendarDate']));
+                        calculator_time.val(Timer.to_interval(data['calendarTime']));
+                        calculator_clean_time.val(Timer.to_interval(data['cleanTime']));
                         calculator_percents.val(data['percents'] + '%');
                     },
                     function (error) {

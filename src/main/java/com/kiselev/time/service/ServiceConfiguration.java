@@ -1,20 +1,53 @@
 package com.kiselev.time.service;
 
-import com.kiselev.time.model.session.TimeSession;
-import com.kiselev.time.service.calculator.configuration.CalculatorServiceConfiguration;
+import com.kiselev.time.repository.ProfileRepository;
+import com.kiselev.time.security.encoder.SecurityEncoder;
+import com.kiselev.time.service.anonymity.AnonymityService;
+import com.kiselev.time.service.authentication.AuthenticationService;
+import com.kiselev.time.service.profile.ProfileService;
+import com.kiselev.time.service.validation.ValidationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
-@Import(value = {CalculatorServiceConfiguration.class})
 public class ServiceConfiguration {
 
     @Bean
     @Scope(scopeName = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public TimeSession timeSession() {
-        return new TimeSession();
+    public AuthenticationService authenticationService(ProfileService profileService,
+                                                       SecurityEncoder securityEncoder,
+                                                       AnonymityService anonymityService,
+                                                       ValidationService validationService,
+                                                       AuthenticationManager authenticationManager) {
+        return new AuthenticationService(
+                profileService,
+                securityEncoder,
+                anonymityService,
+                validationService,
+                authenticationManager
+        );
+    }
+
+    @Bean
+    public ProfileService profilerService(ProfileRepository profileRepository,
+                                          SecurityEncoder securityEncoder) {
+        return new ProfileService(
+                profileRepository,
+                securityEncoder
+        );
+    }
+
+    @Bean
+    public ValidationService validationService() {
+        return new ValidationService();
+    }
+
+    @Bean
+    public AnonymityService anonymityService() {
+        return new AnonymityService();
     }
 }
