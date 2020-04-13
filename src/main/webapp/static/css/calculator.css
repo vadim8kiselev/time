@@ -25,6 +25,10 @@ body {
     font-family: Roboto, sans-serif
 }
 
+input {
+    box-shadow: none !important;
+}
+
 /* Circular Menu */
 /*.circular-menu {
     position: fixed;

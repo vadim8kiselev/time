@@ -25,7 +25,17 @@ body {
     font-family: Roboto, sans-serif
 }
 
+input {
+    box-shadow: none !important;
+}
+
 select {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
+}
+
+.required:after {
+    padding-left: 5px;
+    content:"*";
+    color:red;
 }

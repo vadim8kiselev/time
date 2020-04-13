@@ -25,6 +25,10 @@ body {
     font-family: Roboto, sans-serif
 }
 
+input {
+    box-shadow: none !important;
+}
+
 /* Clock */
 @keyframes rotate {
     100% {

@@ -7,7 +7,7 @@ public class ProfileNotFoundException extends TimeException {
     public ProfileNotFoundException() {
     }
 
-    public ProfileNotFoundException(String message, Object... args) {
-        super(message, args);
+    public ProfileNotFoundException(String message) {
+        super(message);
     }
 }

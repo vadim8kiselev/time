@@ -41,9 +41,6 @@ public class ProfileService {
         if (storedProfile != null && securityEncoder.match(profile, storedProfile)) {
             return storedProfile;
         }
-        throw new ProfileNotFoundException(
-                "Profile with username %s does not exist",
-                profile.getUsername()
-        );
+        throw new ProfileNotFoundException("Incorrect username or password.");
     }
 }
