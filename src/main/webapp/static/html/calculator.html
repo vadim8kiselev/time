@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Time</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/static/css/lib/bootstrap.css">
-        <link rel="stylesheet" href="/static/css/calculator.css">
-        <link rel="stylesheet" href="/static/css/component/menu.css">
+        <link rel="stylesheet" href="../css/lib/bootstrap.css">
+        <link rel="stylesheet" href="../css/calculator.css">
+        <link rel="stylesheet" href="../css/component/menu.css">
     </head>
+
     <body>
         <nav class="menu">
             <h3>Time</h3>
@@ -25,15 +27,15 @@
             </form>
         </nav>
         <button class="toggler">
-            <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-                <path class="line top"
-                      d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
-                <path class="line middle"
-                      d="m 70,50 h -40"></path>
-                <path class="line bottom"
-                      d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
-            </svg>
-        </button>
+                <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                    <path class="line top"
+                        d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+                    <path class="line middle"
+                        d="m 70,50 h -40"></path>
+                    <path class="line bottom"
+                        d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+                </svg>
+            </button>
 
         <div class="container h-100">
             <div class="row h-100">
@@ -49,11 +51,10 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="fa fa-money"></i>
-                                            </span>
+                                                    <i class="fa fa-money"></i>
+                                                </span>
                                         </div>
-                                        <input id="calculator-money" class="form-control" type="number"
-                                               min="0" name="money" placeholder="Enter price here...">
+                                        <input id="calculator-money" class="form-control" type="number" min="0" name="money" placeholder="Enter price here...">
                                     </div>
                                 </div>
                                 <br>
@@ -80,7 +81,7 @@
             </div>
         </div>
 
-        <!--<div id="circularMenu" class="circular-menu">
+    <!--<div id="circularMenu" class="circular-menu">
             <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
                 <i class="fa fa-plus"></i>
             </a>
@@ -92,11 +93,12 @@
             </menu>
         </div>-->
 
-        <script type="text/javascript" src="/static/js/lib/jquery.js"></script>
-        <script type="text/javascript" src="/static/js/lib/popper.js"></script>
-        <script type="text/javascript" src="/static/js/lib/bootstrap.js"></script>
-        <script type="text/javascript" src="/static/js/lib/jquery.cookie.js" ></script>
-        <script type="text/javascript" src="/static/js/service/service.js"></script>
-        <script type="text/javascript" src="/static/js/page/calculator.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/popper.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../js/service/service.js"></script>
+        <script type="text/javascript" src="../js/page/calculator.js"></script>
     </body>
+
 </html>
