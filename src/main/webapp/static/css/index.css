@@ -40,10 +40,7 @@ select {
     color:red;
 }
 @media (max-width: 480px) {
-    .justify-content-center {
+    .container {
         overflow-y: auto;
     }
-}
-.container{    
-    margin-top: 19px;
 }
