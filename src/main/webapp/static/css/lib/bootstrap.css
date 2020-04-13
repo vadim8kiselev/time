@@ -580,11 +580,6 @@ pre code {
     margin-left: auto;
 }
 
-@media (max-width: 480px) {
-    .justify-content-center {
-        overflow-y: auto;
-    }
-}
 
 @media (min-width: 576px) {
     .container {
@@ -663,7 +658,6 @@ pre code {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
-    margin-top: 19px;
 }
 
 .no-gutters {

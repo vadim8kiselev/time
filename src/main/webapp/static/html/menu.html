@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Time</title>
+        <title>Time</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/lib/bootstrap.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/component/menu.css">
-</head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/lib/bootstrap.css">
+        <link rel="stylesheet" href="../css/menu.css">
+        <link rel="stylesheet" href="../css/component/menu.css">
+    </head>
 
-<body>
-    <nav class="menu">
-        <h3>Time</h3>
-        <form id="edit-profile" action="/edit" method="GET">
-            <button type="submit">Edit profile</button>
-        </form>
-        <form id="information" action="/information" method="GET">
-            <button type="submit">Information</button>
-        </form>
-        <form id="copyright" action="/copyright" method="GET">
-            <button type="submit">Authors</button>
-        </form>
-    </nav>
-    <button class="toggler">
-            <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-                <path class="line top"
-                      d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
-                <path class="line middle"
-                      d="m 70,50 h -40"></path>
-                <path class="line bottom"
+    <body>
+        <nav class="menu">
+            <h3>Time</h3>
+            <form id="edit-profile" action="/edit" method="GET">
+                <button type="submit">Edit profile</button>
+            </form>
+            <form id="information" action="/information" method="GET">
+                <button type="submit">Information</button>
+            </form>
+            <form id="copyright" action="/copyright" method="GET">
+                <button type="submit">Authors</button>
+            </form>
+        </nav>
+        <button class="toggler">
+                <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                    <path class="line top"
+                        d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+                    <path class="line middle"
+                        d="m 70,50 h -40"></path>
+                    <path class="line bottom"
                       d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
-            </svg>
-        </button>
+                </svg>
+            </button>
 
-    <div class="container h-100">
-        <div class="clock">
-            <div class="hours-container">
-                <div class="hours"></div>
-            </div>
-            <div class="minutes-container">
-                <div class="minutes"></div>
-            </div>
-            <div class="seconds-container">
-                <div class="seconds"></div>
+        <div class="container h-100">
+            <div class="clock">
+                <div class="hours-container">
+                    <div class="hours"></div>
+                </div>
+                <div class="minutes-container">
+                    <div class="minutes"></div>
+                </div>
+                <div class="seconds-container">
+                    <div class="seconds"></div>
+                </div>
+
+                <form id="calculator" action="/calculator" method="GET">
+                    <button type="submit" class="calculator-chart"></button>
+                </form>
+                <form id="planner" action="/planner" method="GET">
+                    <button type="submit" class="planner-chart"></button>
+                </form>
+                <form id="function1" action="/something" method="GET">
+                    <button type="submit" class="something-chart"></button>
+                </form>
+                <form id="function2" action="/else" method="GET">
+                    <button type="submit" class="else-chart"></button>
+                </form>
             </div>
 
-            <form id="calculator" action="/calculator" method="GET">
-                <button type="submit" class="calculator-chart"></button>
-            </form>
-            <form id="planner" action="/planner" method="GET">
-                <button type="submit" class="planner-chart"></button>
-            </form>
-            <form id="function1" action="/something" method="GET">
-                <button type="submit" class="something-chart"></button>
-            </form>
-            <form id="function2" action="/else" method="GET">
-                <button type="submit" class="else-chart"></button>
-            </form>
+            <p id="calculator-title" class="curved-title">Calculator</p>
+            <p id="planner-title" class="curved-title">Planner</p>
+            <p id="title1" class="curved-title">Something</p>
+            <p id="title2" class="curved-title">Else</p>
         </div>
 
-        <p id="calculator-title" class="curved-title">Calculator</p>
-        <p id="planner-title" class="curved-title">Planner</p>
-        <p id="title1" class="curved-title">Something</p>
-        <p id="title2" class="curved-title">Else</p>
-    </div>
-
-    <script type="text/javascript" src="../js/lib/jquery.js"></script>
-    <script type="text/javascript" src="../js/lib/popper.js"></script>
-    <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
-    <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../js/service/service.js"></script>
-    <script type="text/javascript" src="../js/page/menu.js"></script>
-</body>
+        <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/popper.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../js/service/service.js"></script>
+        <script type="text/javascript" src="../js/page/menu.js"></script>
+    </body>
 
 </html>

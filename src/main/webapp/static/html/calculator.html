@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Time</title>
+        <title>Time</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/lib/bootstrap.css">
-    <link rel="stylesheet" href="../css/calculator.css">
-    <link rel="stylesheet" href="../css/component/menu.css">
-</head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/lib/bootstrap.css">
+        <link rel="stylesheet" href="../css/calculator.css">
+        <link rel="stylesheet" href="../css/component/menu.css">
+    </head>
 
-<body>
-    <nav class="menu">
-        <h3>Time</h3>
-        <form id="edit-profile" action="/edit" method="GET">
-            <button type="submit">Edit profile</button>
-        </form>
-        <form id="information" action="/information" method="GET">
-            <button type="submit">Information</button>
-        </form>
-        <form id="copyright" action="/copyright" method="GET">
-            <button type="submit">Authors</button>
-        </form>
-    </nav>
-    <button class="toggler">
-            <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-                <path class="line top"
-                      d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
-                <path class="line middle"
-                      d="m 70,50 h -40"></path>
-                <path class="line bottom"
-                      d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
-            </svg>
-        </button>
+    <body>
+        <nav class="menu">
+            <h3>Time</h3>
+            <form id="edit-profile" action="/edit" method="GET">
+                <button type="submit">Edit profile</button>
+            </form>
+            <form id="information" action="/information" method="GET">
+                <button type="submit">Information</button>
+            </form>
+            <form id="copyright" action="/copyright" method="GET">
+                <button type="submit">Authors</button>
+            </form>
+        </nav>
+        <button class="toggler">
+                <svg class="ham" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                    <path class="line top"
+                        d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+                    <path class="line middle"
+                        d="m 70,50 h -40"></path>
+                    <path class="line bottom"
+                        d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+                </svg>
+            </button>
 
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-6 mx-auto align-self-center">
-                <div id="calculator-card" class="card">
-                    <header class="card-header">
-                        <h4 class="card-title mt-2">Calculator</h4>
-                    </header>
-                    <article class="card-body">
-                        <form id="calculator" autocomplete="off">
-                            <div class="form-group">
-                                <label for="calculator-money">Price</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                                <i class="fa fa-money"></i>
-                                            </span>
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-6 mx-auto align-self-center">
+                    <div id="calculator-card" class="card">
+                        <header class="card-header">
+                            <h4 class="card-title mt-2">Calculator</h4>
+                        </header>
+                        <article class="card-body">
+                            <form id="calculator" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="calculator-money">Price</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                    <i class="fa fa-money"></i>
+                                                </span>
+                                        </div>
+                                        <input id="calculator-money" class="form-control" type="number" min="0" name="money" placeholder="Enter price here...">
                                     </div>
-                                    <input id="calculator-money" class="form-control" type="number" min="0" name="money" placeholder="Enter price here...">
                                 </div>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="calculator-date">Date:</label>
-                                <input id="calculator-date" class="form-control" name="date" type="text" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="calculator-time">Calendar time:</label>
-                                <input id="calculator-time" class="form-control" name="time" type="text" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="calculator-clean-time">Exact time:</label>
-                                <input id="calculator-clean-time" class="form-control" name="clean-time" type="text" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="calculator-percents">Life percent:</label>
-                                <input id="calculator-percents" class="form-control" name="percents" type="text" readonly>
-                            </div>
-                        </form>
-                    </article>
+                                <br>
+                                <div class="form-group">
+                                    <label for="calculator-date">Date:</label>
+                                    <input id="calculator-date" class="form-control" name="date" type="text" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="calculator-time">Calendar time:</label>
+                                    <input id="calculator-time" class="form-control" name="time" type="text" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="calculator-clean-time">Exact time:</label>
+                                    <input id="calculator-clean-time" class="form-control" name="clean-time" type="text" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="calculator-percents">Life percent:</label>
+                                    <input id="calculator-percents" class="form-control" name="percents" type="text" readonly>
+                                </div>
+                            </form>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <!--<div id="circularMenu" class="circular-menu">
             <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
@@ -93,12 +93,12 @@
             </menu>
         </div>-->
 
-    <script type="text/javascript" src="../js/lib/jquery.js"></script>
-    <script type="text/javascript" src="../js/lib/popper.js"></script>
-    <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
-    <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../js/service/service.js"></script>
-    <script type="text/javascript" src="../js/page/calculator.js"></script>
-</body>
+        <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/popper.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../js/service/service.js"></script>
+        <script type="text/javascript" src="../js/page/calculator.js"></script>
+    </body>
 
 </html>
