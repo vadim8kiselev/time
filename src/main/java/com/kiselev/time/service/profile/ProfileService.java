@@ -1,8 +1,8 @@
 package com.kiselev.time.service.profile;
 
 import com.kiselev.time.exception.TimeException;
-import com.kiselev.time.exception.repository.ProfileIsAlreadyExistException;
-import com.kiselev.time.exception.repository.ProfileNotFoundException;
+import com.kiselev.time.exception.repository.TimeUsernameIsNotAvailableException;
+import com.kiselev.time.exception.repository.TimeIncorrectUsernameOrPasswordException;
 import com.kiselev.time.model.dto.Profile;
 import com.kiselev.time.repository.ProfileRepository;
 import com.kiselev.time.security.encoder.SecurityEncoder;
@@ -27,7 +27,7 @@ public class ProfileService {
             );
         } catch (DataIntegrityViolationException exception) {
             LOGGER.warn("Integrity violation while saving a profile", exception);
-            throw new ProfileIsAlreadyExistException(
+            throw new TimeUsernameIsNotAvailableException(
                     "Username %s is not available.",
                     profile.getUsername()
             );
@@ -41,6 +41,6 @@ public class ProfileService {
         if (storedProfile != null && securityEncoder.match(profile, storedProfile)) {
             return storedProfile;
         }
-        throw new ProfileNotFoundException("Incorrect username or password.");
+        throw new TimeIncorrectUsernameOrPasswordException("Incorrect username or password.");
     }
 }
