@@ -17,80 +17,75 @@
                 <div class="col-sm-7 col-md-9 col-xl-6 mx-auto align-self-center">
                     <div id="registration-card" class="card">
                         <header class="card-header">
-                            <a href="/login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                            <a href="/login" class="float-right btn btn-outline-primary mt-1 btn-log">Log in</a>
                             <h4 class="card-title mt-2">Create your account</h4>
                         </header>
                         <article class="card-body">
                             <form id="registration-form" action="/registration" method="POST" autocomplete="off">
                                 <div class="form-group">
-                                    <label for="username" class="required">Username</label>
+                                    <label for="username" class="required reg-label">Username</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="fa fa-user"></i>
-                                            </span>
+                                                    <i class="fa fa-user"></i>
+                                                </span>
                                         </div>
-                                        <input id="username" name="username" type="text" class="form-control"
-                                               required="required"/>
+                                        <input id="username" name="username" type="text" inputmode="verbatim" class="form-control" required="required" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="required">Password</label>
+                                    <label for="password" class="required reg-label">Password</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="fa fa-lock"></i>
-                                            </span>
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
                                         </div>
-                                        <input id="password" name="password" type="password" class="form-control"
-                                               required="required"/>
+                                        <input id="password" name="password" inputmode="verbatim" type="password" class="form-control" required="required" />
                                     </div>
                                     <small class="text-muted">
-                                        Make sure it's at least 3 characters and consists of alphanumeric characters.
-                                    </small>
+                                            Make sure it's at least 3 characters and consists of alphanumeric characters.
+                                        </small>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="salary" class="required">Salary</label>
+                                        <label for="salary" class="required reg-label">Salary</label>
                                         <div class="input-group">
-                                            <input id="salary" name="salary" type="number" class="form-control" min="0"
-                                                   required="required"/>
+                                            <input id="salary" name="salary" type="number" inputmode="numeric" class="form-control" min="0" required="required" />
                                             <div class="input-group-append">
-                                                <select id="currency" name="currency" form="registration-form"
-                                                        class="btn input-group-text" required="required">
-                                                    <option value="₽" selected="selected">₽</option>
-                                                    <option value="$">$</option>
-                                                </select>
+                                                <select id="currency" name="currency" form="registration-form" class="btn input-group-text" required="required">
+                                                        <option value="₽" selected="selected">₽</option>
+                                                        <option value="$">$</option>
+                                                    </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3 offset-md-1">
-                                        <label for="tax" class="required">Tax</label>
+                                        <label for="tax" class="required reg-label">Tax</label>
                                         <div class="input-group">
-                                            <input id="tax" name="tax" type="number" class="form-control" min="0" max="100"
-                                                   required="required"/>
+                                            <input id="tax" name="tax" type="number" inputmode="numeric" class="form-control" min="0" max="100" required="required" />
                                             <div class="input-group-append">
-                                                <span class="input-group-text">
-                                                    <i class="fa fa-percent"></i>
-                                                </span>
+                                                <span class="input-group-text">%
+                                                        <!-- <i class="fa fa-percent"></i> -->
+                                                    </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="hours">Working hours</label>
+                                        <label for="hours" class="reg-label">Working hours</label>
                                         <div class="input-group">
-                                            <input id="hours" name="hours" type="number" class="form-control" min="0"/>
+                                            <input id="hours" name="hours" type="number" inputmode="numeric" class="form-control" min="0" />
                                             <div class="input-group-append">
                                                 <span class="input-group-text">hours per week</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-5 offset-md-1">
-                                        <label for="age">Age</label>
+                                        <label for="age" class="reg-label">Age</label>
                                         <div class="input-group">
-                                            <input id="age" name="age" type="number" class="form-control" min="0" max="100"/>
+                                            <input id="age" name="age" type="number" inputmode="numeric" class="form-control" min="0" max="100" />
                                             <div class="input-group-append">
                                                 <span class="input-group-text">years old</span>
                                             </div>
@@ -98,16 +93,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block" value="Submit">Register</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-reg" value="Submit">Register</button>
                                 </div>
                                 <div class="text-center">
                                     <small class="text-muted">
-                                        By clicking the 'Register' button, you accept our Terms of use and Privacy Policy.
-                                    </small>
+                                            By clicking the 'Register' button, you accept our Terms of use and Privacy Policy.
+                                        </small>
                                 </div>
                             </form>
                         </article>
-                        <div class="border-top card-body text-center">Have an account? <a href="/login">Log In</a></div>
+                        <div class="border-top card-body text-center footer-label">Have an account? <a class="footer-label" href="/login">Log In</a></div>
                     </div>
                 </div>
             </div>
