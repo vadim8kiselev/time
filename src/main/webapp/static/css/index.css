@@ -41,9 +41,11 @@ select {
     .container {
         overflow-y: auto;
     }
+
     .form-group {
         margin-bottom: 0.5rem;
     }
+
     .input-group,
     .input-group-prepend,
     .form-control,
@@ -51,28 +53,35 @@ select {
     .input-group-text {
         height: 1.7rem;
     }
+
     .input-group-text,
     .reg-label {
         font-size: 12px;
     }
+
     .card-title {
         font-size: 16px;
     }
+
     .btn-log {
         font-size: 14px;
         height: 1.7rem;
         padding: 0.2rem;
         width: 4rem;
     }
+
     .card-header {
         padding: 0.5rem 1rem;
     }
+
     .card-body {
         padding: 0.25rem 1.25rem;
     }
+
     .btn-reg {
         height: 2rem;
     }
+
     .footer-label {
         font-size: 14px;
     }
