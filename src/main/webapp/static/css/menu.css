@@ -4,12 +4,6 @@
     margin: 0;
     padding: 0;
     cursor: default;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 html {
@@ -21,7 +15,6 @@ body {
     height: 100%;
     width: 100%;
 
-    overflow: hidden;
     font-family: Roboto, sans-serif
 }
 
