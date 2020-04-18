@@ -1,6 +1,6 @@
 package com.kiselev.time.security.details;
 
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.dto.db.Profile;
 import com.kiselev.time.repository.ProfileRepository;
 import com.kiselev.time.security.constants.SecurityConstants;
 import lombok.RequiredArgsConstructor;

@@ -2,15 +2,20 @@ package com.kiselev.time.service.validation;
 
 import com.google.common.collect.Sets;
 import com.kiselev.time.exception.TimeException;
+import com.kiselev.time.exception.validation.TimeEmptyIncomesException;
 import com.kiselev.time.exception.validation.TimeValuePatternViolationException;
 import com.kiselev.time.exception.validation.TimeEmptyRequiredFieldException;
 import com.kiselev.time.exception.validation.TimeValueRangeViolationException;
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.dto.db.Income;
+import com.kiselev.time.model.dto.db.Profile;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
 
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class ValidationService {
@@ -25,9 +30,7 @@ public class ValidationService {
         validateUsername(profile);
         validatePassword(profile);
 
-        validateSalary(profile);
-        validateCurrency(profile);
-        validateTax(profile);
+        validateIncome(profile);
     }
 
     public void login(Profile profile) throws TimeException {
@@ -36,9 +39,7 @@ public class ValidationService {
     }
 
     public void loginAnonymously(Profile profile) throws TimeException {
-        validateSalary(profile);
-        validateCurrency(profile);
-        validateTax(profile);
+        validateIncome(profile);
     }
 
     private void validateUsername(Profile profile) throws TimeException {
@@ -77,21 +78,55 @@ public class ValidationService {
         }
     }
 
-    private void validateSalary(Profile profile) throws TimeException {
-        Long salary = profile.getSalary();
+    private void validateIncome(Profile profile) throws TimeException {
+        Set<Income> incomes = profile.getIncomes();
 
-        if (salary == null) {
-            throw new TimeEmptyRequiredFieldException("Salary cannot be null.");
-        }
+        validateMainIncome(incomes);
 
-        if (salary < 0) {
-            throw new TimeValueRangeViolationException("Salary cannot be lower than 0");
+        for (Income income : incomes) {
+            validateMoney(income.getMoney());
+            validateCurrency(income.getCurrency());
+            validateTax(income.getTax());
         }
     }
 
-    private void validateCurrency(Profile profile) throws TimeException {
-        String currency = profile.getCurrency();
+    private void validateMainIncome(Set<Income> incomes) throws TimeException {
+        if (CollectionUtils.isEmpty(incomes)) {
+            throw new TimeEmptyIncomesException("Incomes cannot be empty.");
+        }
 
+        List<Income> mainIncomes = incomes.stream()
+                .filter(Income::isMain)
+                .collect(Collectors.toList());
+
+        if (mainIncomes.size() != 1) {
+            throw new TimeEmptyIncomesException("There should be only one main income.");
+        }
+
+        Income mainIncome = mainIncomes.get(0);
+
+        if (mainIncome.getMoney() == null) {
+            throw new TimeEmptyRequiredFieldException("Income cannot be null.");
+        }
+
+        if (StringUtils.isEmpty(mainIncome.getCurrency())) {
+            throw new TimeEmptyRequiredFieldException("Currency cannot be blank.");
+        }
+
+        if (mainIncome.getTax() == null) {
+            throw new TimeEmptyRequiredFieldException("Tax cannot be empty.");
+        }
+    }
+
+    private void validateMoney(Long money) throws TimeException {
+        if (money != null && money < 0) {
+            throw new TimeValueRangeViolationException("Income cannot be lower than 0");
+        }
+
+        // Validate maximum value
+    }
+
+    private void validateCurrency(String currency) throws TimeException {
         validateIsNotEmpty(currency, "Currency cannot be blank.");
 
         if (!CURRENCIES.contains(currency)) {
@@ -99,14 +134,8 @@ public class ValidationService {
         }
     }
 
-    private void validateTax(Profile profile) throws TimeException {
-        Integer tax = profile.getTax();
-
-        if (tax == null) {
-            throw new TimeEmptyRequiredFieldException("Tax cannot be empty.");
-        }
-
-        if (tax < 0 || tax > 100) {
+    private void validateTax(Integer tax) throws TimeException {
+        if (tax != null && (tax < 0 || tax > 100)) {
             throw new TimeValueRangeViolationException("Tax cannot be lower than 0 and higher than 100");
         }
     }

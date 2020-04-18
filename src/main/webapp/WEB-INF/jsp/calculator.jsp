@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +14,7 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/static/css/lib/bootstrap.css">
-        <link rel="stylesheet" href="/static/css/menu.css">
+        <link rel="stylesheet" href="/static/css/calculator.css">
         <link rel="stylesheet" href="/static/css/component/menu.css">
     </head>
 
@@ -25,7 +27,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fa fa-clock-o"></i>
                     </div>
@@ -34,6 +36,16 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="/calculator">
+                        <i class="fa fa-calculator"></i>
+                        <span>Calculator</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
@@ -44,10 +56,10 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Functions:</h6>
-                            <a class="collapse-item" href="buttons.html">Function 1</a>
-                            <a class="collapse-item" href="buttons.html">Function 2</a>
-                            <a class="collapse-item" href="buttons.html">Function 3</a>
-                            <a class="collapse-item" href="buttons.html">Function 4</a>
+                            <a class="collapse-item" href="/calculator">Calculator</a>
+                            <a class="collapse-item" href="/menu">Function 2</a>
+                            <a class="collapse-item" href="/menu">Function 3</a>
+                            <a class="collapse-item" href="/menu">Function 4</a>
                         </div>
                     </div>
                 </li>
@@ -62,7 +74,7 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-info"></i>
                         <span>Information</span>
                     </a>
@@ -70,19 +82,11 @@
 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-user"></i>
                         <span>Authors</span>
                     </a>
                 </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
-
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
 
             </ul>
             <!-- End of Sidebar -->
@@ -97,37 +101,18 @@
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                         <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
 
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
 
-                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                            <li class="nav-item dropdown no-arrow d-sm-none">
-                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-search fa-fw"></i>
-                                </a>
-                                <!-- Dropdown - Messages -->
-                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                    <form class="form-inline mr-auto w-100 navbar-search">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="fas fa-search fa-sm"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Vadim Kiselev</span>
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">User Name</span>
                                     <img class="img-profile rounded-circle" width="60" height="60"
                                          src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
                                 </a>
@@ -154,35 +139,47 @@
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <div class="clock">
-                            <div class="hours-container">
-                                <div class="hours"></div>
+                        <div class="row h-100">
+                            <div class="col-6 mx-auto align-self-center">
+                                <div id="calculator-card" class="card">
+                                    <header class="card-header">
+                                        <h4 class="card-title mt-2">Calculator</h4>
+                                    </header>
+                                    <article class="card-body">
+                                        <form id="calculator" autocomplete="off">
+                                            <div class="form-group">
+                                                <label for="calculator-money">Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-money"></i>
+                                            </span>
+                                                    </div>
+                                                    <input id="calculator-money" class="form-control" type="number" min="0" name="money" placeholder="Enter price here...">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="calculator-date">Date:</label>
+                                                <input id="calculator-date" class="form-control" name="date" type="text" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="calculator-time">Calendar time:</label>
+                                                <input id="calculator-time" class="form-control" name="time" type="text" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="calculator-clean-time">Exact time:</label>
+                                                <input id="calculator-clean-time" class="form-control" name="clean-time" type="text" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="calculator-percents">Life percent:</label>
+                                                <input id="calculator-percents" class="form-control" name="percents" type="text" readonly>
+                                            </div>
+                                        </form>
+                                    </article>
+                                </div>
                             </div>
-                            <div class="minutes-container">
-                                <div class="minutes"></div>
-                            </div>
-                            <div class="seconds-container">
-                                <div class="seconds"></div>
-                            </div>
-
-                            <form id="calculator" action="/calculator" method="GET">
-                                <button type="submit" class="calculator-chart"></button>
-                            </form>
-                            <form id="planner" action="/planner" method="GET">
-                                <button type="submit" class="planner-chart"></button>
-                            </form>
-                            <form id="function1" action="/something" method="GET">
-                                <button type="submit" class="something-chart"></button>
-                            </form>
-                            <form id="function2" action="/else" method="GET">
-                                <button type="submit" class="else-chart"></button>
-                            </form>
                         </div>
-
-                        <p id="calculator-title" class="curved-title">Calculator</p>
-                        <p id="planner-title" class="curved-title">Planner</p>
-                        <p id="title1" class="curved-title">Something</p>
-                        <p id="title2" class="curved-title">Else</p>
                     </div>
                 </div>
                 <!-- End of Main Content -->
@@ -216,7 +213,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="/">Logout</a>
                     </div>
                 </div>
             </div>
@@ -228,6 +225,6 @@
         <script type="text/javascript" src="/static/js/lib/jquery.cookie.js"></script>
         <script type="text/javascript" src="/static/js/lib/admin.js"></script>
         <script type="text/javascript" src="/static/js/service/service.js"></script>
-        <script type="text/javascript" src="/static/js/page/menu.js"></script>
+        <script type="text/javascript" src="/static/js/page/calculator.js"></script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 package com.kiselev.time.function.calculator.strategy;
 
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.dto.db.Profile;
 
 import java.sql.Date;
 import java.time.Instant;

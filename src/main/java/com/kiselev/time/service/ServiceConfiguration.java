@@ -4,6 +4,7 @@ import com.kiselev.time.repository.ProfileRepository;
 import com.kiselev.time.security.encoder.SecurityEncoder;
 import com.kiselev.time.service.anonymity.AnonymityService;
 import com.kiselev.time.service.authentication.AuthenticationService;
+import com.kiselev.time.service.preparator.DataPreparator;
 import com.kiselev.time.service.profile.ProfileService;
 import com.kiselev.time.service.validation.ValidationService;
 import org.springframework.context.annotation.Bean;
@@ -39,6 +40,11 @@ public class ServiceConfiguration {
                 profileRepository,
                 securityEncoder
         );
+    }
+
+    @Bean
+    public DataPreparator dataPreparator() {
+        return new DataPreparator();
     }
 
     @Bean

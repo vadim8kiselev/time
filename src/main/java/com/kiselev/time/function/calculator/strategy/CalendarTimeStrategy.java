@@ -2,15 +2,20 @@ package com.kiselev.time.function.calculator.strategy;
 
 import com.kiselev.time.model.constants.TimeConstants;
 import com.kiselev.time.function.calculator.utils.CalculationUtils;
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.dto.db.Profile;
 
 public class CalendarTimeStrategy {
 
     public Long calculate(Profile profile, Long price) {
-        double netIncome = CalculationUtils.tax(
-                profile.getSalary(),
-                profile.getTax()
+        double income = CalculationUtils.sumIncomes(
+                profile.getIncomes()
         );
+
+        double netIncome = CalculationUtils.subtractAverageSpending(
+                profile,
+                income
+        );
+
         double netAnnualIncome = CalculationUtils.annualIncome(netIncome);
         long targetPeriodInSeconds = CalculationUtils.daysToSeconds(
                 daysInTargetPeriod()

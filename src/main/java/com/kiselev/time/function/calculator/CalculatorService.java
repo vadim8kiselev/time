@@ -1,6 +1,6 @@
 package com.kiselev.time.function.calculator;
 
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.dto.db.Profile;
 import com.kiselev.time.model.response.CalculatorResponse;
 import com.kiselev.time.function.calculator.strategy.CalendarDateStrategy;
 import com.kiselev.time.function.calculator.strategy.CalendarTimeStrategy;

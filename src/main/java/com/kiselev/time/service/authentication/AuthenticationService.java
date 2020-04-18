@@ -1,15 +1,19 @@
 package com.kiselev.time.service.authentication;
 
 import com.kiselev.time.exception.TimeException;
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.constants.NavigationConstants;
+import com.kiselev.time.model.dto.db.Profile;
 import com.kiselev.time.security.constants.SecurityConstants;
 import com.kiselev.time.security.encoder.SecurityEncoder;
 import com.kiselev.time.service.anonymity.AnonymityService;
+import com.kiselev.time.service.preparator.DataPreparator;
 import com.kiselev.time.service.profile.ProfileService;
 import com.kiselev.time.service.validation.ValidationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 @RequiredArgsConstructor
@@ -25,13 +29,18 @@ public class AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
 
-    public Profile profile;
+    public Profile sessionProfile;
 
     public Profile profile() {
-        if (profile != null) {
-            return profile;
+        if (sessionProfile != null) {
+            return sessionProfile;
         }
         throw new RuntimeException("Profile was not found in session");
+    }
+
+    public boolean isLoggedInIn() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return !(auth instanceof AnonymousAuthenticationToken);
     }
 
     public void register(Profile profile) throws TimeException {
@@ -47,7 +56,7 @@ public class AuthenticationService {
                 profileService.save(encodedProfile);
 
         // Save to session
-        this.profile = storedProfile;
+        this.sessionProfile = storedProfile;
 
         // Authenticate
         authenticate(profile);
@@ -62,7 +71,7 @@ public class AuthenticationService {
                 profileService.read(profile);
 
         // Save to session
-        this.profile = storedProfile;
+        this.sessionProfile = storedProfile;
 
         // Authenticate
         authenticate(profile);
@@ -85,7 +94,7 @@ public class AuthenticationService {
                 profileService.read(encodedProfile);
 
         // Save to session
-        this.profile = storedProfile;
+        this.sessionProfile = storedProfile;
 
         // Authenticate
         authenticate(anonymousProfile);

@@ -1,8 +1,9 @@
 package com.kiselev.time.view.web;
 
 import com.kiselev.time.exception.TimeException;
+import com.kiselev.time.model.constants.NavigationConstants;
 import com.kiselev.time.model.constants.NavigationConstants.LoginConstants;
-import com.kiselev.time.model.dto.Profile;
+import com.kiselev.time.model.dto.db.Profile;
 import com.kiselev.time.service.authentication.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,10 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(Model model) {
+        if (authenticationService.isLoggedInIn()) {
+            return NavigationConstants.RegistrationConstants.TO_MENU;
+        }
+
         Profile profile = new Profile();
         model.addAttribute(PROFILE_KEY, profile);
         return LoginConstants.LOGIN;

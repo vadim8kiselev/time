@@ -1,6 +1,10 @@
 package com.kiselev.time.function.calculator.utils;
 
 import com.kiselev.time.model.constants.TimeConstants;
+import com.kiselev.time.model.dto.db.Income;
+import com.kiselev.time.model.dto.db.Profile;
+
+import java.util.Set;
 
 public class CalculationUtils {
 
@@ -13,6 +17,13 @@ public class CalculationUtils {
 
     public static long priceToSeconds(long dividend, double divider) {
         return Math.round((dividend + DOUBLE_TAIL) / divider);
+    }
+
+    public static double sumIncomes(Set<Income> incomes) {
+        // TODO: convert money to main income's currency
+        return incomes.stream()
+                .mapToDouble(income -> tax(income.getMoney(), income.getTax()))
+                .sum();
     }
 
     public static double tax(long salary, int tax) {
@@ -36,5 +47,13 @@ public class CalculationUtils {
                 TimeConstants.HOURS_IN_DAY *
                 TimeConstants.MINUTES_IN_HOUR *
                 TimeConstants.SECONDS_IN_MINUTE;
+    }
+
+    public static double subtractAverageSpending(Profile profile, double income) {
+        Long spending = profile.getSpending();
+        if (spending != null) {
+            return Math.max(income - spending, 0);
+        }
+        return income;
     }
 }
