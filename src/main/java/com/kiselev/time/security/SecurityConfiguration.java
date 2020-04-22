@@ -56,17 +56,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/login/anonymous").permitAll()
                     .anyRequest().authenticated()
                     .and()
-                /*.formLogin()
-                    .loginPage("/")
-                    .usernameParameter("username")
-                    .passwordParameter("password")
-                    .defaultSuccessUrl("/menu", true)
-                    .and()*/
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("username")
                     .passwordParameter("password")
-                    .defaultSuccessUrl("/menu", true);
+                    .defaultSuccessUrl("/menu", true)
+                    .and()
+                .csrf().disable();
     }
 
     @Override
@@ -80,6 +76,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers("/static/**");
+                .antMatchers("/static/css/**")
+                .antMatchers("/static/js/**")
+                .antMatchers("/static/img/**");
     }
 }
