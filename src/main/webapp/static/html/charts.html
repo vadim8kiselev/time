@@ -1,23 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <title>Time</title>
-
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/lib/bootstrap.css">
-        <link rel="stylesheet" href="../css/calculator.css">
-        <link rel="stylesheet" href="../css/component/menu.css">
-    </head>
-
-    <body id="page-top">
-
+  <head>
+    <title>Time</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/lib/bootstrap.css">
+    <link rel="stylesheet" href="../css/index.css">
+  </head>
+  <body>
         <!-- Page Wrapper -->
         <div id="wrapper">
 
@@ -37,9 +29,9 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="/calculator">
+                    <a class="nav-link" href="/">
                         <i class="fa fa-calculator"></i>
-                        <span>Calculator</span></a>
+                        <span>Chart</span></a>
                 </li>
 
                 <!-- Divider -->
@@ -54,7 +46,7 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Functions:</h6>
-                            <a class="collapse-item" href="/calculator">Calculator</a>
+                            <a class="collapse-item" href="/calculator">Charts</a>
                             <a class="collapse-item" href="/menu">Function 2</a>
                             <a class="collapse-item" href="/menu">Function 3</a>
                             <a class="collapse-item" href="/menu">Function 4</a>
@@ -134,52 +126,65 @@
                         </ul>
                     </nav>
                     <!-- End of Topbar -->
-
-                    <!-- Begin Page Content -->
                     <div class="container-fluid">
-                        <div class="row h-100">
-                            <div class="col-sm-7 col-md-9 col-xl-6 mx-auto align-self-center">
-                                <div id="calculator-card" class="card">
-                                    <header class="card-header">
-                                        <h4 class="card-title mt-2">Calculator</h4>
-                                    </header>
-                                    <article class="card-body">
-                                        <form id="calculator" autocomplete="off">
-                                            <div class="form-group">
-                                                <label for="calculator-money" class="inputs-labels">Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-money"></i>
-                                            </span>
-                                                    </div>
-                                                    <input id="calculator-money" class="form-control" type="number" min="0" name="money" placeholder="Enter price here...">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="calculator-date" class="inputs-labels">Date:</label>
-                                                <input id="calculator-date" class="form-control" name="date" type="text" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="calculator-time" class="inputs-labels">Calendar time:</label>
-                                                <input id="calculator-time" class="form-control" name="time" type="text" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="calculator-clean-time" class="inputs-labels">Exact time:</label>
-                                                <input id="calculator-clean-time" class="form-control" name="clean-time" type="text" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="calculator-percents" class="inputs-labels">Life percent:</label>
-                                                <input id="calculator-percents" class="form-control" name="percents" type="text" readonly>
-                                            </div>
-                                        </form>
-                                    </article>
+
+                        <!-- Page Heading -->
+                        <!-- Content Row -->
+                        <div class="row">
+              
+                          <div class="col-xl-8 col-lg-7">
+              
+                            <!-- Area Chart -->
+                            <div class="card shadow mb-4">
+                              <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="chart-area">
+                                  <canvas id="myAreaChart"></canvas>
+                                </div>
+                                <hr>
                                 </div>
                             </div>
+              
+                            <!-- Bar Chart -->
+                            <div class="card shadow mb-4">
+                              <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="chart-bar">
+                                  <canvas id="myBarChart"></canvas>
+                                </div>
+                                <hr>
+                              </div>
+                            </div>
+              
+                          </div>
+              
+                          <!-- Donut Chart -->
+                          <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                              <!-- Card Header - Dropdown -->
+                              <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                              </div>
+                              <!-- Card Body -->
+                              <div class="card-body">
+                                <div class="chart-pie pt-4">
+                                  <canvas id="myPieChart"></canvas>
+                                </div>
+                                <hr>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+              
+                      </div>
+                      <!-- /.container-fluid -->
+              
                     </div>
-                </div>
-                <!-- End of Main Content -->
+                    <!-- End of Main Content -->
 
                 <!-- Footer -->
                 <!--<footer class="sticky-footer bg-white">
@@ -215,13 +220,10 @@
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript" src="../js/lib/jquery.js"></script>
-        <script type="text/javascript" src="../js/lib/popper.js"></script>
-        <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
-        <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
-        <script type="text/javascript" src="../js/lib/admin.js"></script>
-        <script type="text/javascript" src="../js/service/service.js"></script>
-        <script type="text/javascript" src="../js/page/calculator.js"></script>
-    </body>
+    <script src="../js/chart/Chart.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/lib/popper.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/page/index.js"></script>
+</body>
 </html>

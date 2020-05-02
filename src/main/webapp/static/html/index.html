@@ -7,8 +7,8 @@
         <title>Time</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/static/css/lib/bootstrap.css">
-        <link rel="stylesheet" href="/static/css/index.css">
+        <link rel="stylesheet" href="../css/lib/bootstrap.css">
+        <link rel="stylesheet" href="../css/index.css">
     </head>
 
     <body>
@@ -48,162 +48,172 @@
                                     </small>
                                 </div>
                                 <div id="income-container">
-                                    <div id="income-row-1" class="income-row form-row">
-                                        <div class="form-group col-md-7">
-                                            <label for="income1" class="required reg-label">Income</label>
-                                            <div class="input-group">
-                                                <input id="income1" name="incomes[0].money" type="number" inputmode="numeric" class="form-control" min="0" required="required"/>
-                                                <div class="input-group-append">
-                                                    <select id="currency1" name="incomes[0].currency" form="registration-form" class="btn input-group-text" required="required">
-                                                        <option value="₽" selected="selected">₽</option>
-                                                    </select>
+                                    <div id="income-row-1" class="income-row form-row income-row-1">
+                                        <div class="income-row-container-inputs">
+                                            <div class="form-group col-md-7">
+                                                <label for="income1" class="required reg-label">Income</label>
+                                                <div class="input-group">
+                                                    <input id="income1" name="incomes[0].money" type="number" inputmode="numeric" class="form-control" min="0" required="required"/>
+                                                    <div class="input-group-append">
+                                                        <select id="currency1" name="incomes[0].currency" form="registration-form" class="btn input-group-text select-item" required="required">
+                                                            <option value="₽" selected="selected">₽</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-3 offset-md-1">
-                                            <label for="tax1" class="required reg-label">Tax</label>
-                                            <div class="input-group">
-                                                <input id="tax1" name="incomes[0].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100" required="required"/>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <i class="fa fa-percent"></i>
-                                                    </span>
+                                            <div class="form-group col-md-3 offset-md-1">
+                                                <label for="tax1" class="required reg-label">Tax</label>
+                                                <div class="input-group">
+                                                    <input id="tax1" name="incomes[0].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100" required="required"/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text inputs-tax">
+                                                            <i class="fa fa-percent"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-check" disabled="disabled" style="display: none">
                                             <input type="checkbox" name="incomes[0].main" class="form-check-input" id="mainFlag1" checked="checked"/>
                                         </div>
-                                        <div class="form-group col-md-1">
-                                            <button id="addIncomeForm" class="btn btn-outline-success"
+                                        <div class="form-group col-md-1 add-item-container">
+                                            <button id="addIncomeForm" class="btn btn-outline-success add-item-button"
                                                     type="button" onclick="Entry.addIncomeForm()" style="margin-top: 32px">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div id="income-row-2" class="income-row form-row" disabled="disabled" style="display: none">
-                                        <div class="form-group col-md-7">
-                                            <div class="input-group">
-                                                <input id="income2" name="incomes[1].money" type="number" inputmode="numeric" class="form-control" min="0"/>
-                                                <div class="input-group-append">
-                                                    <select id="currency2" name="incomes[1].currency" form="registration-form" class="btn input-group-text">
-                                                        <option value="₽" selected="selected">₽</option>
-                                                    </select>
+                                    <div id="income-row-2" class="income-row form-row income-row-2" disabled="disabled" style="display: none">
+                                        <div class="income-row-container-inputs">
+                                            <div class="form-group col-md-7">
+                                                <div class="input-group">
+                                                    <input id="income2" name="incomes[1].money" type="number" inputmode="numeric" class="form-control" min="0"/>
+                                                    <div class="input-group-append">
+                                                        <select id="currency2" name="incomes[1].currency" form="registration-form" class="btn input-group-text select-item">
+                                                            <option value="₽" selected="selected">₽</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-3 offset-md-1">
-                                            <div class="input-group">
-                                                <input id="tax2" name="incomes[1].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <i class="fa fa-percent"></i>
-                                                    </span>
+                                            <div class="form-group col-md-3 offset-md-1">
+                                                <div class="input-group">
+                                                    <input id="tax2" name="incomes[1].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text inputs-tax">
+                                                            <i class="fa fa-percent"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-check" disabled="disabled" style="display: none">
                                             <input type="checkbox" name="incomes[1].main" class="form-check-input" id="mainFlag2"/>
                                         </div>
-                                        <div class="form-group col-md-1">
-                                            <button id="deleteIncomeForm2" class="btn btn-outline-danger"
+                                        <div class="form-group col-md-1 add-item-container">
+                                            <button id="deleteIncomeForm2" class="btn btn-outline-danger add-item-button"
                                                     type="button" onclick="Entry.deleteIncomeForm('#income-row-2')">
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div id="income-row-3" class="income-row form-row" disabled="disabled" style="display: none">
-                                        <div class="form-group col-md-7">
-                                            <div class="input-group">
-                                                <input id="income3" name="incomes[2].money" type="number" inputmode="numeric" class="form-control" min="0"/>
-                                                <div class="input-group-append">
-                                                    <select id="currency3" name="incomes[2].currency" form="registration-form" class="btn input-group-text">
-                                                        <option value="₽" selected="selected">₽</option>
-                                                    </select>
+                                    <div id="income-row-3" class="income-row form-row income-row-3" disabled="disabled" style="display: none">
+                                        <div class="income-row-container-inputs">
+                                            <div class="form-group col-md-7">
+                                                <div class="input-group">
+                                                    <input id="income3" name="incomes[2].money" type="number" inputmode="numeric" class="form-control" min="0"/>
+                                                    <div class="input-group-append">
+                                                        <select id="currency3" name="incomes[2].currency" form="registration-form" class="btn input-group-text select-item">
+                                                            <option value="₽" selected="selected">₽</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-3 offset-md-1">
-                                            <div class="input-group">
-                                                <input id="tax3" name="incomes[2].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <i class="fa fa-percent"></i>
-                                                    </span>
+                                            <div class="form-group col-md-3 offset-md-1">
+                                                <div class="input-group">
+                                                    <input id="tax3" name="incomes[2].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text inputs-tax">
+                                                            <i class="fa fa-percent"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-check" disabled="disabled" style="display: none">
                                             <input type="checkbox" name="incomes[2].main" class="form-check-input" id="mainFlag3"/>
                                         </div>
-                                        <div class="form-group col-md-1">
-                                            <button id="deleteIncomeForm3" class="btn btn-outline-danger"
+                                        <div class="form-group col-md-1 add-item-container">
+                                            <button id="deleteIncomeForm3" class="btn btn-outline-danger add-item-button"
                                                     type="button" onclick="Entry.deleteIncomeForm('#income-row-3')">
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div id="income-row-4" class="income-row form-row" disabled="disabled" style="display: none">
-                                        <div class="form-group col-md-7">
-                                            <div class="input-group">
-                                                <input id="income4" name="incomes[3].money" type="number" inputmode="numeric" class="form-control" min="0"/>
-                                                <div class="input-group-append">
-                                                    <select id="currency4" name="incomes[3].currency" form="registration-form" class="btn input-group-text">
-                                                        <option value="₽" selected="selected">₽</option>
-                                                    </select>
+                                    <div id="income-row-4" class="income-row form-row income-row-4" disabled="disabled" style="display: none">
+                                        <div class="income-row-container-inputs">
+                                            <div class="form-group col-md-7">
+                                                <div class="input-group">
+                                                    <input id="income4" name="incomes[3].money" type="number" inputmode="numeric" class="form-control" min="0"/>
+                                                    <div class="input-group-append">
+                                                        <select id="currency4" name="incomes[3].currency" form="registration-form" class="btn input-group-text select-item">
+                                                            <option value="₽" selected="selected">₽</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-3 offset-md-1">
-                                            <div class="input-group">
-                                                <input id="tax4" name="incomes[3].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <i class="fa fa-percent"></i>
-                                                    </span>
+                                            <div class="form-group col-md-3 offset-md-1">
+                                                <div class="input-group">
+                                                    <input id="tax4" name="incomes[3].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text inputs-tax">
+                                                            <i class="fa fa-percent"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-check" disabled="disabled" style="display: none">
                                             <input type="checkbox" name="incomes[3].main" class="form-check-input" id="mainFlag4"/>
                                         </div>
-                                        <div class="form-group col-md-1">
-                                            <button id="deleteIncomeForm4" class="btn btn-outline-danger"
+                                        <div class="form-group col-md-1 add-item-container">
+                                            <button id="deleteIncomeForm4" class="btn btn-outline-danger add-item-button"
                                                     type="button" onclick="Entry.deleteIncomeForm('#income-row-4')">
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div id="income-row-5" class="income-row form-row" disabled="disabled" style="display: none">
-                                        <div class="form-group col-md-7">
-                                            <div class="input-group">
-                                                <input id="income5" name="incomes[4].money" type="number" inputmode="numeric" class="form-control" min="0"/>
-                                                <div class="input-group-append">
-                                                    <select id="currency5" name="incomes[4].currency" form="registration-form" class="btn input-group-text">
-                                                        <option value="₽" selected="selected">₽</option>
-                                                    </select>
+                                    <div id="income-row-5" class="income-row form-row income-row-5" disabled="disabled" style="display: none">
+                                        <div class="income-row-container-inputs">
+                                            <div class="form-group col-md-7">
+                                                <div class="input-group">
+                                                    <input id="income5" name="incomes[4].money" type="number" inputmode="numeric" class="form-control" min="0"/>
+                                                    <div class="input-group-append">
+                                                        <select id="currency5" name="incomes[4].currency" form="registration-form" class="btn input-group-text">
+                                                            <option value="₽" selected="selected">₽</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-3 offset-md-1">
-                                            <div class="input-group">
-                                                <input id="tax5" name="incomes[4].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <i class="fa fa-percent"></i>
-                                                    </span>
+                                            <div class="form-group col-md-3 offset-md-1">
+                                                <div class="input-group">
+                                                    <input id="tax5" name="incomes[4].tax" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text inputs-tax">
+                                                            <i class="fa fa-percent"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-check" disabled="disabled" style="display: none">
                                             <input type="checkbox" name="incomes[4].main" class="form-check-input" id="mainFlag5"/>
                                         </div>
-                                        <div class="form-group col-md-1">
-                                            <button id="deleteIncomeForm5" class="btn btn-outline-danger"
+                                        <div class="form-group col-md-1 add-item-container">
+                                            <button id="deleteIncomeForm5" class="btn btn-outline-danger add-item-button"
                                                     type="button" onclick="Entry.deleteIncomeForm('#income-row-5')">
                                                 <i class="fa fa-minus"></i>
                                             </button>
@@ -225,7 +235,7 @@
                                         <div class="input-group">
                                             <input id="age" name="age" type="number" inputmode="numeric" class="form-control" min="0" max="100"/>
                                             <div class="input-group-append">
-                                                <span class="input-group-text">years old</span>
+                                                <span class="input-group-text inputs-age">years old</span>
                                             </div>
                                         </div>
                                     </div>
@@ -246,9 +256,9 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="/static/js/lib/jquery.js"></script>
-        <script type="text/javascript" src="/static/js/lib/popper.js"></script>
-        <script type="text/javascript" src="/static/js/lib/bootstrap.js"></script>
-        <script type="text/javascript" src="/static/js/page/index.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.js"></script>
+        <script type="text/javascript" src="../js/lib/popper.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/page/index.js"></script>
     </body>
 </html>
