@@ -31,6 +31,7 @@ select {
     content: "*";
     color: red;
 }
+
 @media (min-width: 490px){
     .income-row-container-inputs{
         width: 85%;
@@ -94,17 +95,17 @@ select {
     .income-row-2,
     .income-row-3,
     .income-row-4,
-    .income-row-5{
+    .income-row-5 {
         flex-wrap: nowrap;
         width: 100%;
         margin-top: 15px;
     }
 
-    .income-row-container-inputs{
+    .income-row-container-inputs {
         width: 85%;
     }
 
-    .add-item-container{
+    .add-item-container {
         width: 15%;
         display: flex;
         justify-content: center;
@@ -112,7 +113,7 @@ select {
         margin: 0;
     }
 
-    .add-item-button{
+    .add-item-button {
         height: 1.7em;
         width: 1.7em;
         display: flex;
@@ -120,15 +121,15 @@ select {
     }
 
     .fa-plus,
-    .fa-minus{
+    .fa-minus {
         font-size: 12px;
     }
 
-    .inputs-age{
+    .inputs-age {
         padding: 0.375rem 0.95rem;
     }
 
-    .select-item{
+    .select-item {
         padding: 0.3rem 0.76rem;
     }
 }

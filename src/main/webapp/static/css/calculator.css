@@ -50,8 +50,9 @@ input {
     .input-group-text {
         height: 1.7rem;
     }
+    
     .inputs-labels,
-    .form-control{
+    .form-control {
         font-size: 12px;
     }
 }
