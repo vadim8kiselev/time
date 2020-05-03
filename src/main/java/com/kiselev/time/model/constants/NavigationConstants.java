@@ -27,4 +27,19 @@ public interface NavigationConstants {
 
         String CALCULATOR = "calculator";
     }
+
+    interface WorkLifeBalanceConstants {
+
+        String BALANCE = "balance";
+    }
+
+    interface UsageCostConstants {
+
+        String USAGE = "usage";
+    }
+
+    interface DayTimeConstants {
+
+        String DAY = "day";
+    }
 }
