@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +14,6 @@ html {
 body {
     height: 100%;
     width: 100%;
-
     font-family: Roboto, sans-serif
 }
 
@@ -26,20 +26,85 @@ select {
     -webkit-border-radius: 0;
 }
 
-.required:after {
-    padding-left: 5px;
-    content: "*";
-    color: red;
+/*.required:after {*/
+/*    padding-left: 5px;*/
+/*    content: "*";*/
+/*    color: red;*/
+/*}*/
+
+.user-icon {
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
 }
 
-@media (min-width: 490px){
-    .income-row-container-inputs{
+.form-row {
+    flex-direction: column;
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+}
+
+.form-container_person-information,
+.form-container_income-container {
+    border-right: 1px solid #d1d3e2;
+    padding-right: 5px;
+    margin-right: 18px;
+    flex-basis: 33%;
+}
+
+.form-container_buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.form-container_buttons_edit,
+.form-container_buttons_delete {
+    margin: 10px;
+    width: 80px;
+}
+
+.form-container_additional-information {
+    flex-basis: 30%;
+}
+
+.inputs-age {
+    padding-left: 20px;
+}
+
+.form-container_person-information_oldPassword {
+    margin-bottom: 16px;
+}
+
+.form-container-headers {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+@media (min-width: 490px) {
+    .income-row-container-inputs {
         width: 85%;
-        display:contents;
+        display: contents;
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 490px) and (max-width: 990px) {
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-container_person-information,
+    .form-container_income-container,
+    .form-container_additional-information {
+        width: 70%;
+    }
+}
+
+@media (max-width: 990px) {
     .container {
         overflow-y: auto;
     }
@@ -55,7 +120,8 @@ select {
     .input-group-text {
         height: 1.7rem;
     }
-    .inputs-tax{
+
+    .inputs-tax {
         padding: 0.375rem 0.7rem;
     }
 
@@ -101,10 +167,6 @@ select {
         margin-top: 15px;
     }
 
-    .income-row-container-inputs {
-        width: 85%;
-    }
-
     .add-item-container {
         width: 15%;
         display: flex;
@@ -124,12 +186,27 @@ select {
     .fa-minus {
         font-size: 12px;
     }
-    
+
     .inputs-age {
         padding: 0.375rem 0.95rem;
     }
 
     .select-item {
         padding: 0.3rem 0.76rem;
+    }
+
+    .form-container {
+        flex-direction: column;
+    }
+
+    .form-container_person-information,
+    .form-container_income-container {
+        border-bottom: 1px solid #d1d3e2;
+        padding-bottom: 5px;
+        margin-bottom: 18px;
+        flex-basis: 33%;
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
     }
 }
