@@ -42,4 +42,9 @@ public interface NavigationConstants {
 
         String DAY = "day";
     }
+
+    interface UserConstants {
+
+        String USER = "user";
+    }
 }
