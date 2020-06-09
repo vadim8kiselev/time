@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic');
+
 * {
     margin: 0;
     padding: 0;
@@ -32,14 +33,20 @@ select {
     color: red;
 }
 
-.income-row-container-inputs_income1 {
+.income-row-container-inputs_income1,
+.income-row-container-inputs_income2 {
     padding-left: 5px;
 }
 
-@media (min-width: 490px){
-    .income-row-container-inputs{
+@media (min-width: 490px) {
+    .income-row-container-inputs {
         width: 85%;
-        display:contents;
+        display: contents;
+    }
+
+    .income-row-container-inputs_income2 {
+        padding-left: 5px;
+        margin-left: 6.1%;
     }
 }
 
@@ -59,7 +66,8 @@ select {
     .input-group-text {
         height: 1.7rem;
     }
-    .inputs-tax{
+
+    .inputs-tax {
         padding: 0.375rem 0.7rem;
     }
 
@@ -128,7 +136,7 @@ select {
     .fa-minus {
         font-size: 12px;
     }
-    
+
     .inputs-age {
         padding: 0.375rem 0.95rem;
     }
