@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic');
+
+* {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+
+    font-family: Roboto, sans-serif
+}
+
+input {
+    box-shadow: none !important;
+}
+
+select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+.required:after {
+    padding-left: 5px;
+    content: "*";
+    color: red;
+}
+
+.income-row-container-inputs_income1,
+.income-row-container-inputs_income2 {
+    padding-left: 5px;
+}
+
+@media (min-width: 490px) {
+    .income-row-container-inputs {
+        width: 85%;
+        display: contents;
+    }
+
+    .income-row-container-inputs_income2 {
+        padding-left: 5px;
+        margin-left: 6.1%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        overflow-y: auto;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .input-group,
+    .input-group-prepend,
+    .form-control,
+    .input-group-append,
+    .input-group-text {
+        height: 1.7rem;
+    }
+
+    .inputs-tax {
+        padding: 0.375rem 0.7rem;
+    }
+
+    .input-group-text,
+    .reg-label {
+        font-size: 12px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .btn-log {
+        font-size: 14px;
+        height: 1.7rem;
+        padding: 0.2rem;
+        width: 4rem;
+    }
+
+    .card-header {
+        padding: 0.5rem 1rem;
+    }
+
+    .card-body {
+        padding: 0.25rem 1.25rem;
+    }
+
+    .btn-reg {
+        height: 2rem;
+    }
+
+    .footer-label {
+        font-size: 14px;
+    }
+
+    .income-row-1,
+    .income-row-2,
+    .income-row-3,
+    .income-row-4,
+    .income-row-5 {
+        flex-wrap: nowrap;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .income-row-container-inputs {
+        width: 85%;
+    }
+
+    .add-item-container {
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .add-item-button {
+        height: 1.7em;
+        width: 1.7em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .fa-plus,
+    .fa-minus {
+        font-size: 12px;
+    }
+
+    .inputs-age {
+        padding: 0.375rem 0.95rem;
+    }
+
+    .select-item {
+        padding: 0.3rem 0.76rem;
+    }
+}

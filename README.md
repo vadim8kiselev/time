@@ -1,2 +1,2 @@
 # time
-Exclusive calculator of time in the salary measurement 
+Exclusive calculator of time in the income measurement 
