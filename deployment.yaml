@@ -15,7 +15,7 @@ spec:
         app: time
     spec:
       containers:
-      - image: kiselev/time:1.0.0
+      - image: kiselev/time:1.1.0
         name: time
         ports:
         - containerPort: 8080

@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
-ARG WAR_FILE=target/*.war
+ARG JAR_FILE=target/*.jar
 
-COPY ${WAR_FILE} application.war
+COPY ${JAR_FILE} application.jar
 
 ENTRYPOINT ["java","-jar","/application.jar"]
