@@ -1,6 +1,6 @@
 package com.kiselev.time.service.anonymity;
 
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 
 import java.util.UUID;
 

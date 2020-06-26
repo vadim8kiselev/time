@@ -1,6 +1,7 @@
-package com.kiselev.time.model.dto.db;
+package com.kiselev.time.model.dto.internal;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class Income implements Serializable {
     private boolean main;
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.EAGER)
     private Profile profile;
 }

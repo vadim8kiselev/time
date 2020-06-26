@@ -13,7 +13,6 @@
     <groupId>com.kiselev</groupId>
     <artifactId>time</artifactId>
     <version>1.0.0.RELEASE</version>
-    <packaging>war</packaging>
 
     <dependencies>
         <!-- Spring Boot starter -->
@@ -37,17 +36,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
         </dependency>
 
         <!-- PostgreSQL -->
@@ -99,14 +87,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                </configuration>
             </plugin>
 
             <plugin>

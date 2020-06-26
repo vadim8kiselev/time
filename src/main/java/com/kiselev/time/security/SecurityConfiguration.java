@@ -40,21 +40,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/api/rest/v1/time/**").permitAll()
+                .antMatchers("/api/rest/v1/time/authentication/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(
                         securityFilter(),
                         UsernamePasswordAuthenticationFilter.class);
 
-        /*http
+        http
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/menu", true);*/
+                .defaultSuccessUrl("/menu", true);
     }
 
     @Override
@@ -62,15 +60,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth
                 .userDetailsService(userDetailsService())
                 .passwordEncoder(bCryptPasswordEncoder());
-    }
-
-    @Override
-    public void configure(WebSecurity web) {
-        web
-                .ignoring()
-                .antMatchers("/static/css/**")
-                .antMatchers("/static/js/**")
-                .antMatchers("/static/img/**");
     }
 
     @Bean

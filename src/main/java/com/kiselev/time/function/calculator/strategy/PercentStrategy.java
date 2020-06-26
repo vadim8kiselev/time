@@ -1,7 +1,7 @@
 package com.kiselev.time.function.calculator.strategy;
 
 import com.kiselev.time.function.calculator.utils.CalculationUtils;
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

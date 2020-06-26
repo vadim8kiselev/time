@@ -13,12 +13,7 @@ import org.springframework.context.annotation.Import;
 @Import({ServiceConfiguration.class,
         SecurityConfiguration.class,
         FunctionConfiguration.class})
-public class TimeApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(TimeApplication.class);
-    }
+public class TimeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TimeApplication.class, args);

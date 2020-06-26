@@ -1,7 +1,7 @@
 package com.kiselev.time.security.jwt;
 
 import com.kiselev.time.exception.type.TimeSecurityException;
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 import com.kiselev.time.security.constants.SecurityConstants;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

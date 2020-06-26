@@ -1,6 +1,6 @@
 package com.kiselev.time.function;
 
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 import com.kiselev.time.service.authentication.AuthenticationService;
 import com.kiselev.time.service.profile.ProfileService;
 import lombok.RequiredArgsConstructor;

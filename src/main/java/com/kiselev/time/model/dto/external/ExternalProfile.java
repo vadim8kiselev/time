@@ -1,14 +1,14 @@
-package com.kiselev.time.model.dto.ui;
+package com.kiselev.time.model.dto.external;
 
 import com.google.common.collect.Lists;
-import com.kiselev.time.model.dto.db.Income;
+import com.kiselev.time.model.dto.internal.Income;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class UIProfile implements Serializable {
+public class ExternalProfile implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -16,8 +16,7 @@ public class UIProfile implements Serializable {
 
     private String password;
 
-    private List<Income> incomes =
-            Lists.newArrayList();
+    private List<Income> incomes = Lists.newArrayList();
 
     private Long spending;
 
