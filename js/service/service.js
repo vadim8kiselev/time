@@ -189,7 +189,7 @@ const Caller = (function () {
     }
 
     function url(uri, parameters) {
-        let url = 'http://localhost:8080' + uri;
+        let url = 'http://104.199.0.181:8080' + uri;
         if (parameters) {
             let urlParams = jQuery.param(parameters);
             url += (urlParams ? '?' + urlParams : '');
