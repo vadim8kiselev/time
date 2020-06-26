@@ -5,6 +5,8 @@ import com.kiselev.time.function.calculator.strategy.CalendarDateStrategy;
 import com.kiselev.time.function.calculator.strategy.CalendarTimeStrategy;
 import com.kiselev.time.function.calculator.strategy.CleanTimeStrategy;
 import com.kiselev.time.function.calculator.strategy.PercentStrategy;
+import com.kiselev.time.service.authentication.AuthenticationService;
+import com.kiselev.time.service.profile.ProfileService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,11 +14,15 @@ import org.springframework.context.annotation.Configuration;
 public class CalculatorServiceConfiguration {
 
     @Bean
-    public CalculatorService calculatorService(CalendarDateStrategy calendarDateStrategy,
+    public CalculatorService calculatorService(AuthenticationService authenticationService,
+                                               ProfileService profileService,
+                                               CalendarDateStrategy calendarDateStrategy,
                                                CalendarTimeStrategy calendarTimeStrategy,
                                                CleanTimeStrategy cleanTimeStrategy,
                                                PercentStrategy percentStrategy) {
         return new CalculatorService(
+                authenticationService,
+                profileService,
                 calendarDateStrategy,
                 calendarTimeStrategy,
                 cleanTimeStrategy,

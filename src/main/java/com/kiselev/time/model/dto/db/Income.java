@@ -1,6 +1,7 @@
 package com.kiselev.time.model.dto.db;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,6 +29,7 @@ public class Income implements Serializable {
     @Column(nullable = false)
     private boolean main;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.EAGER)
     private Profile profile;
 }

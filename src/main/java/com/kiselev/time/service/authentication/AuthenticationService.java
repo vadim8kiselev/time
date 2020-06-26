@@ -1,12 +1,12 @@
 package com.kiselev.time.service.authentication;
 
 import com.kiselev.time.exception.TimeException;
-import com.kiselev.time.model.constants.NavigationConstants;
+import com.kiselev.time.exception.type.TimeSecurityException;
 import com.kiselev.time.model.dto.db.Profile;
 import com.kiselev.time.security.constants.SecurityConstants;
 import com.kiselev.time.security.encoder.SecurityEncoder;
+import com.kiselev.time.security.jwt.JsonWebToken;
 import com.kiselev.time.service.anonymity.AnonymityService;
-import com.kiselev.time.service.preparator.DataPreparator;
 import com.kiselev.time.service.profile.ProfileService;
 import com.kiselev.time.service.validation.ValidationService;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +15,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @RequiredArgsConstructor
 public class AuthenticationService {
+
+    private final JsonWebToken jsonWebToken;
 
     private final ProfileService profileService;
 
@@ -27,23 +31,21 @@ public class AuthenticationService {
 
     private final ValidationService validationService;
 
+    private final UserDetailsService userDetailsService;
+
     private final AuthenticationManager authenticationManager;
-
-    public Profile sessionProfile;
-
-    public Profile profile() {
-        if (sessionProfile != null) {
-            return sessionProfile;
-        }
-        throw new RuntimeException("Profile was not found in session");
-    }
 
     public boolean isLoggedInIn() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return !(auth instanceof AnonymousAuthenticationToken);
     }
 
-    public void register(Profile profile) throws TimeException {
+    public String principal() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return (String) authentication.getPrincipal();
+    }
+
+    public String register(Profile profile) throws TimeException {
         // Validate
         validationService.registration(profile);
 
@@ -55,14 +57,17 @@ public class AuthenticationService {
         Profile storedProfile =
                 profileService.save(encodedProfile);
 
-        // Save to session
-        this.sessionProfile = storedProfile;
+        // JSON Web Token
+        String token =
+                jsonWebToken.build(storedProfile);
 
         // Authenticate
         authenticate(profile);
+
+        return token;
     }
 
-    public void login(Profile profile) throws TimeException {
+    public String login(Profile profile) throws TimeException {
         // Validate
         validationService.login(profile);
 
@@ -70,14 +75,17 @@ public class AuthenticationService {
         Profile storedProfile =
                 profileService.read(profile);
 
-        // Save to session
-        this.sessionProfile = storedProfile;
+        // JSON Web Token
+        String token =
+                jsonWebToken.build(storedProfile);
 
         // Authenticate
         authenticate(profile);
+
+        return token;
     }
 
-    public void loginAnonymously(Profile profile) throws TimeException {
+    public String loginAnonymously(Profile profile) throws TimeException {
         // Validate
         validationService.loginAnonymously(profile);
 
@@ -93,23 +101,46 @@ public class AuthenticationService {
         Profile storedProfile =
                 profileService.read(encodedProfile);
 
-        // Save to session
-        this.sessionProfile = storedProfile;
+        // JSON Web Token
+        String token =
+                jsonWebToken.build(storedProfile);
 
         // Authenticate
         authenticate(anonymousProfile);
+
+        return token;
     }
 
-    private void authenticate(Profile profile) {
-        UsernamePasswordAuthenticationToken token =
+    public void authenticate(String token) throws TimeSecurityException {
+        String username =
+                jsonWebToken.parse(token);
+
+        UserDetails userDetails =
+                userDetailsService.loadUserByUsername(username);
+
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(
+                        userDetails.getUsername(),
+                        userDetails.getPassword(),
+                        userDetails.getAuthorities());
+
+        // By some reason we don't need to authenticate users while using JWT token
+        // Authentication authentication =
+        //        authenticationManager.authenticate(authenticationToken);
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+    }
+
+    public void authenticate(Profile profile) {
+        UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(
                         profile.getUsername(),
                         profile.getPassword(),
                         SecurityConstants.AUTHORITIES);
 
-        SecurityContextHolder.getContext()
-                .setAuthentication(
-                        authenticationManager.authenticate(token)
-                );
+        Authentication authentication =
+                authenticationManager.authenticate(authenticationToken);
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 }

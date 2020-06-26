@@ -2,6 +2,7 @@ package com.kiselev.time.service;
 
 import com.kiselev.time.repository.ProfileRepository;
 import com.kiselev.time.security.encoder.SecurityEncoder;
+import com.kiselev.time.security.jwt.JsonWebToken;
 import com.kiselev.time.service.anonymity.AnonymityService;
 import com.kiselev.time.service.authentication.AuthenticationService;
 import com.kiselev.time.service.preparator.DataPreparator;
@@ -19,16 +20,20 @@ public class ServiceConfiguration {
 
     @Bean
     @Scope(scopeName = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public AuthenticationService authenticationService(ProfileService profileService,
+    public AuthenticationService authenticationService(JsonWebToken jsonWebToken,
+                                                       ProfileService profileService,
                                                        SecurityEncoder securityEncoder,
                                                        AnonymityService anonymityService,
                                                        ValidationService validationService,
+                                                       UserDetailsService userDetailsService,
                                                        AuthenticationManager authenticationManager) {
         return new AuthenticationService(
+                jsonWebToken,
                 profileService,
                 securityEncoder,
                 anonymityService,
                 validationService,
+                userDetailsService,
                 authenticationManager
         );
     }

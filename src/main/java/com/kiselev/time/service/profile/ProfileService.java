@@ -1,6 +1,7 @@
 package com.kiselev.time.service.profile;
 
 import com.kiselev.time.exception.TimeException;
+import com.kiselev.time.exception.repository.TimeProfileDoesNotExistException;
 import com.kiselev.time.exception.repository.TimeUsernameIsNotAvailableException;
 import com.kiselev.time.exception.repository.TimeIncorrectUsernameOrPasswordException;
 import com.kiselev.time.model.dto.db.Profile;
@@ -35,12 +36,18 @@ public class ProfileService {
     }
 
     public Profile read(Profile profile) throws TimeException {
-        Profile storedProfile = profileRepository.findByUsernameAndAnonymousFalse(
+        Profile storedProfile = read(
                 profile.getUsername()
         );
         if (storedProfile != null && securityEncoder.match(profile, storedProfile)) {
             return storedProfile;
         }
         throw new TimeIncorrectUsernameOrPasswordException("Incorrect username or password.");
+    }
+
+    public Profile read(String username) {
+        return profileRepository.findByUsernameAndAnonymousFalse(
+                username
+        );
     }
 }
