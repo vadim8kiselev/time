@@ -160,7 +160,9 @@ const Caller = (function () {
             type: method,
             url: url,
             headers: {
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': '*',
+                'Access-Control-Allow-Headers': '*'
             },
             async: async,
             data: data,

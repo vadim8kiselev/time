@@ -31,7 +31,7 @@ const Calculator = (function () {
                 }
 
                 Caller.get(
-                    Caller.url('/calculator/calculate', {"price": money}),
+                    Caller.url('/calculator', {"price": money}),
                     function (data) {
                         console.log(data);
                         calculator_date.val(Timer.to_date(data['calendarDate']));
