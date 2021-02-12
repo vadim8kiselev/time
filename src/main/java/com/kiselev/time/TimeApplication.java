@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import({ServiceConfiguration.class,
-//        SecurityConfiguration.class,
+        SecurityConfiguration.class,
         FunctionConfiguration.class})
 public class TimeApplication {
 

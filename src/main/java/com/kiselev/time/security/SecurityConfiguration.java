@@ -22,8 +22,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+//@EnableWebSecurity TODO
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private ProfileRepository profileRepository;
@@ -32,40 +32,42 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        http
-                .csrf()
-                .disable();
-
-        http
-                .cors();
-
-        http
-                .authorizeRequests()
-                .antMatchers("/health/**").permitAll()
-                .antMatchers("/api/rest/v1/time/authentication/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .addFilterBefore(
-                        securityFilter(),
-                        UsernamePasswordAuthenticationFilter.class);
-
-        http
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .defaultSuccessUrl("/menu", true);
+//        TODO
+//        http
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//
+//        http
+//                .csrf()
+//                .disable();
+//
+//        http
+//                .cors();
+//
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/health/**").permitAll()
+//                .antMatchers("/api/rest/v1/time/authentication/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .addFilterBefore(
+//                        securityFilter(),
+//                        UsernamePasswordAuthenticationFilter.class);
+//
+//        http
+//                .formLogin()
+//                .loginPage("/login")
+//                .usernameParameter("username")
+//                .passwordParameter("password")
+//                .defaultSuccessUrl("/menu", true);
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(userDetailsService())
-                .passwordEncoder(bCryptPasswordEncoder());
+//        TODO
+//        auth
+//                .userDetailsService(userDetailsService())
+//                .passwordEncoder(bCryptPasswordEncoder());
     }
 
     @Bean
@@ -73,12 +75,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public SecurityFilter securityFilter() {
-        return new SecurityFilter(
-                authenticationService
-        );
-    }
+//    TODO
+//    @Bean
+//    public SecurityFilter securityFilter() {
+//        return new SecurityFilter(
+//                authenticationService
+//        );
+//    }
 
     @Bean
     public SecurityEncoder securityEncoder(BCryptPasswordEncoder passwordEncoder) {
