@@ -44,6 +44,13 @@
             <artifactId>postgresql</artifactId>
         </dependency>
 
+        <!-- H2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Other -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
