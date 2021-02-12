@@ -1,10 +1,9 @@
 package com.kiselev.time.service.profile;
 
 import com.kiselev.time.exception.TimeException;
-import com.kiselev.time.exception.repository.TimeProfileDoesNotExistException;
 import com.kiselev.time.exception.repository.TimeUsernameIsNotAvailableException;
 import com.kiselev.time.exception.repository.TimeIncorrectUsernameOrPasswordException;
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 import com.kiselev.time.repository.ProfileRepository;
 import com.kiselev.time.security.encoder.SecurityEncoder;
 import lombok.RequiredArgsConstructor;

@@ -22,22 +22,14 @@ public class SecurityFilter extends OncePerRequestFilter {
     private final AuthenticationService authenticationService;
 
     private RequestMatcher functionMatcher =
-            new AntPathRequestMatcher("/function/**");
-
-    private RequestMatcher menuMatcher =
-            new AntPathRequestMatcher("/menu/**");
-
-    private RequestMatcher userMatcher =
-            new AntPathRequestMatcher("/user/**");
+            new AntPathRequestMatcher("/api/rest/v1/time/function/**");
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        if (functionMatcher.matches(httpServletRequest)
-                || menuMatcher.matches(httpServletRequest)
-                || userMatcher.matches(httpServletRequest)) {
+        if (functionMatcher.matches(httpServletRequest)) {
             try {
                 authenticationService.authenticate(
                         parseToken(httpServletRequest)

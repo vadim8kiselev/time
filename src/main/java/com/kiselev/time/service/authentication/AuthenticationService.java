@@ -2,7 +2,7 @@ package com.kiselev.time.service.authentication;
 
 import com.kiselev.time.exception.TimeException;
 import com.kiselev.time.exception.type.TimeSecurityException;
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 import com.kiselev.time.security.constants.SecurityConstants;
 import com.kiselev.time.security.encoder.SecurityEncoder;
 import com.kiselev.time.security.jwt.JsonWebToken;

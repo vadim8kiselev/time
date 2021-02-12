@@ -12,13 +12,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -39,22 +41,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable();
 
         http
+                .cors();
+
+        http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/api/rest/v1/time/**").permitAll()
+                .antMatchers("/health/**").permitAll()
+                .antMatchers("/api/rest/v1/time/authentication/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(
                         securityFilter(),
                         UsernamePasswordAuthenticationFilter.class);
 
-        /*http
+        http
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/menu", true);*/
+                .defaultSuccessUrl("/menu", true);
     }
 
     @Override
@@ -62,15 +66,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth
                 .userDetailsService(userDetailsService())
                 .passwordEncoder(bCryptPasswordEncoder());
-    }
-
-    @Override
-    public void configure(WebSecurity web) {
-        web
-                .ignoring()
-                .antMatchers("/static/css/**")
-                .antMatchers("/static/js/**")
-                .antMatchers("/static/img/**");
     }
 
     @Bean
@@ -107,6 +102,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new UserDetailsServiceImpl(
                 profileRepository
         );
+    }
+
+    @Bean
+    protected CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+        return source;
     }
 
     @Autowired

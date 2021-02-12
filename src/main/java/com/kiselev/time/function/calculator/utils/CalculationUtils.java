@@ -1,8 +1,8 @@
 package com.kiselev.time.function.calculator.utils;
 
 import com.kiselev.time.model.constants.TimeConstants;
-import com.kiselev.time.model.dto.db.Income;
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Income;
+import com.kiselev.time.model.dto.internal.Profile;
 
 import java.util.Set;
 

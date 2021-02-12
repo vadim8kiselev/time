@@ -5,7 +5,7 @@ import com.kiselev.time.function.calculator.strategy.CalendarDateStrategy;
 import com.kiselev.time.function.calculator.strategy.CalendarTimeStrategy;
 import com.kiselev.time.function.calculator.strategy.CleanTimeStrategy;
 import com.kiselev.time.function.calculator.strategy.PercentStrategy;
-import com.kiselev.time.model.dto.db.Profile;
+import com.kiselev.time.model.dto.internal.Profile;
 import com.kiselev.time.model.response.CalculatorResponse;
 import com.kiselev.time.service.authentication.AuthenticationService;
 import com.kiselev.time.service.profile.ProfileService;
